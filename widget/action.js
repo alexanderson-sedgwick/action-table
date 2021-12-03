@@ -5,7 +5,7 @@
  * 
  * This exists only for documentation purposes and is not actually
  * defined in the instance.
- * @memberof Specifications
+ * @class
  */
 class Action {
 	constructor() {

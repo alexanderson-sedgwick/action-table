@@ -1,8 +1,8 @@
-/**
- * The Angular controller for managing the Action Table
- * @class module:WidgetComponents.ActionTableController
- */
 api.controller = function($scope, $http, spModal, SPGlideAjax) {
+	/**
+	 * The Angular controller for managing the Action Table
+	 * @class module:WidgetComponents.ActionTableController
+	 */
 
 	/**
 	 * Identitifies the localStorage key used for saving and recovering the current state
