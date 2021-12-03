@@ -1,0 +1,40 @@
+{
+  "name": "action-table",
+  "version": "1.0.0",
+  "description": "Moderately simple Service Portal widget made for data source flexibility",
+  "main": "widget/server.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexanderson-sedgwick/action-table.git"
+  },
+  "keywords": [
+    "service",
+    "now",
+    "servicenow",
+    "widget",
+    "service",
+    "portal",
+    "table"
+  ],
+  "author": "alexander.anderson@sedgwick.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexanderson-sedgwick/action-table/issues"
+  },
+  "homepage": "https://github.com/alexanderson-sedgwick/action-table#readme",
+  "devDependencies": {
+    "grunt": "^1.4.1",
+    "load-grunt-tasks": "^5.1.0",
+    "grunt-contrib-yuidoc": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "gruntify-eslint": "^5.0.0",
+    "grunt-jsdoc": "^2.4.1",
+    "yuidocjs": "^0.10.2",
+    "jsdoc": "^3.6.7"
+  },
+  "dependencies": {
+  }
+}

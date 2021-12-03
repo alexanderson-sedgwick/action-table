@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: SPGlideAjax</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: SPGlideAjax</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>SPGlideAjax<span class="signature">($http)</span><span class="type-signature"></span></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    
+    <h4 class="name" id="SPGlideAjax"><span class="type-signature"></span>new SPGlideAjax<span class="signature">($http)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    A simplified version of GlideAJAX for use within the Service Portal.This specifically implements getAnswer and getXMLAnswer with some modernizationfor Promise support through Angular's $http service.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>$http</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">$http</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="providers_spglideajax.js.html">providers/spglideajax.js</a>, <a href="providers_spglideajax.js.html#line2">line 2</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Example Script Include Declaration:```javascriptvar Example = Class.create();Example.prototype = Object.extendsObject(AbstractAjaxProcessor, {	"type": "Example",	"functionA": function() {		return this.getParameter("a");	}});```Example usage of SPGlideAjax:(This will print "9" as a warning to the browser's console)```javascript function _controller($scope, SPGlideAjax) { 	var ga = new SPGlideAjax("Example"); 	ga.addParam("sysparm_name", "functionA"); 	ga.addParam("a", 9); 	ga.getXMLAnswer(console.warn); }```</code></pre>
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="~generalOptions"><span class="type-signature">(private, inner) </span>generalOptions<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    General options to use with all $HTTP calls
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>generalOptions</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="providers_spglideajax.js.html">providers/spglideajax.js</a>, <a href="providers_spglideajax.js.html#line72">line 72</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~regexSpace"><span class="type-signature">(inner) </span>regexSpace<span class="type-signature"> :RegExp</span></h4>
+
+
+
+
+<div class="description">
+    Static space reference for quick replacement.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">RegExp</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>regexSpace</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="providers_spglideajax.js.html">providers/spglideajax.js</a>, <a href="providers_spglideajax.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ActionTableController.html">ActionTableController</a></li><li><a href="ScriptIncludes.html">ScriptIncludes</a></li><li><a href="SPGlideAjax.html">SPGlideAjax</a></li><li><a href="WidgetComponents.html">WidgetComponents</a></li></ul><h3>Global</h3><ul><li><a href="global.html#actionVisible">actionVisible</a></li><li><a href="global.html#addParam">addParam</a></li><li><a href="global.html#checkCondition">checkCondition</a></li><li><a href="global.html#clearFault">clearFault</a></li><li><a href="global.html#completeTemplate">completeTemplate</a></li><li><a href="global.html#endReload">endReload</a></li><li><a href="global.html#fault">fault</a></li><li><a href="global.html#fillin">fillin</a></li><li><a href="global.html#filtering">filtering</a></li><li><a href="global.html">finishQuery</a></li><li><a href="global.html#getExampleData">getExampleData</a></li><li><a href="global.html">getFieldDescription</a></li><li><a href="global.html#getLastUpdateDisplay">getLastUpdateDisplay</a></li><li><a href="global.html#getPageClasses">getPageClasses</a></li><li><a href="global.html#getTableData">getTableData</a></li><li><a href="global.html#getXMLAnswer">getXMLAnswer</a></li><li><a href="global.html#loadCorpus">loadCorpus</a></li><li><a href="global.html#loadData">loadData</a></li><li><a href="global.html#loadRender">loadRender</a></li><li><a href="global.html#mapDataFields">mapDataFields</a></li><li><a href="global.html#mapFields">mapFields</a></li><li><a href="global.html#processAction">processAction</a></li><li><a href="global.html#receiveData">receiveData</a></li><li><a href="global.html#refresh">refresh</a></li><li><a href="global.html#reloadData">reloadData</a></li><li><a href="global.html#renderValue">renderValue</a></li><li><a href="global.html#reorder">reorder</a></li><li><a href="global.html#saveState">saveState</a></li><li><a href="global.html#setIcons">setIcons</a></li><li><a href="global.html#sortData">sortData</a></li><li><a href="global.html">toJSON</a></li><li><a href="global.html#toPage">toPage</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#viewStatusWarning">viewStatusWarning</a></li><li><a href="global.html#visible">visible</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Dec 02 2021 16:31:44 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

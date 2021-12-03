@@ -1,0 +1,120 @@
+[{
+	"hint": "Title to display in the heading",
+	"name": "title",
+	"section": "Presentation",
+	"default_value": "Data",
+	"label": "Title",
+	"type": "string"
+}, {
+	"hint": "Text to display when there is no data retrieved",
+	"name": "empty_text",
+	"section": "Presentation",
+	"default_value": "No Records Found",
+	"label": "No Data Received Message",
+	"type": "string"
+}, {
+	"hint": "Text to display when there is data but all rows are filtered out",
+	"name": "filtered_out_text",
+	"section": "Presentation",
+	"default_value": "All records filtered out",
+	"label": "Data Filtered Out Message",
+	"type": "string"
+}, {
+	"hint": "When on-zero, forces the table to always use this number of rows per page",
+	"name": "per_page",
+	"section": "Presentation",
+	"label": "Force Rows Per Page",
+	"type": "number"
+}, {
+	"hint": "ID for this table on the page. Used for unique identification in system wide storage such as saving the current state",
+	"name": "id",
+	"section": "Behavior",
+	"label": "Table ID",
+	"type": "string"
+}, {
+	"hint": "When true, this widget is hidden from the page",
+	"name": "deactivate",
+	"section": "Behavior",
+	"label": "Deactivate",
+	"type": "boolean"
+}, {
+	"hint": "JSON Array describing the columns to render as objects; {label[String], field[String]}",
+	"name": "columns",
+	"section": "Behavior",
+	"default_value": "[{\"label\":\"Name\",\"field\":\"name\"}, {\"label\":\"Short Description\", \"field\":\"short_description\"}]",
+	"label": "Columns JSON",
+	"type": "string"
+}, {
+	"hint": "JSON Array describing the actions to render as objects; {label[String|Template], adjustments[Array|RegEx], action[String], perform[String|Template], condition[Object]}",
+	"name": "actions",
+	"section": "Behavior",
+	"default_value": "[{\"label\":\"Activate {{name}}\",\"title\":\"Activate {{name}}\",\"field\":\"name\", \"action\": \"link\", \"classes\":\"btn btn-success\", \"perform\": \"/incident.do?sys_id=-1&test={{sys_id}}\", \"condition\": {\"state\":\"inactive\"}}, {\"label\":\"Deactivate {{name}}\",\"title\":\"Deactivate {{name}}\",\"field\":\"name\", \"action\": \"link\", \"classes\":\"btn btn-warning\", \"perform\": \"/incident.do?sys_id=-1&test={{sys_id}}\", \"condition\": {\"state\":\"active\"}}]",
+	"label": "Actions JSON",
+	"type": "string"
+}, {
+	"hint": "Comma separated list of fields not considered in the columns specification that should also be considered filterable",
+	"name": "filterable",
+	"section": "Behavior",
+	"default_value": "",
+	"label": "Additional Filterable Fields",
+	"type": "string"
+}, {
+	"hint": "The number of milliseconds to wait after the last update to trigger a reload of the data. This process ignores manual data reloads and has a minimum value of 60000 (60 seconds).",
+	"name": "refresh_interval",
+	"section": "Behavior",
+	"label": "Refresh Interval",
+	"type": "number"
+}, {
+	"hint": "Controls how this widget retrieves the data it is displaying. Note that API endpoints outside of this Service-Now instance are not supported as the client retrieves the data, not the server, and thus retrieving data from any other domain would pose a security risk and fail most cross-site scripting protections.",
+	"name": "data_source",
+	"section": "Data",
+	"label": "Data Source",
+	"type": "choice",
+	"choices": [{
+		"label": "Table",
+		"value": "table"
+	}, {
+		"label": "Service-Now API Endpoint",
+		"value": "snapi"
+	}, {
+		"label": "Client Callable Script",
+		"value": "ajax"
+	}, {
+		"label": "Server Script",
+		"value": "server"
+	}]
+}, {
+	"hint": "Name the of the Table to query. Only applies to the Table source configuration",
+	"name": "table",
+	"section": "Data",
+	"default_value": "sys_user",
+	"label": "Table",
+	"type": "string"
+}, {
+	"hint": "The path to the endpoint on this instance to invoke. Only applies to the Service-Now API Endpoint source configuration. Only absolute paths are accepted.",
+	"name": "endpoint",
+	"section": "Data",
+	"default_value": "/api/actiontable/example",
+	"label": "Service-Now API Endpoint",
+	"type": "string"
+}, {
+	"hint": "Name the of the Script Include to invoke. Only applies to the Client Callable Script source configuration",
+	"name": "script",
+	"section": "Data",
+	"default_value": "ActionTableScriptAPI",
+	"label": "Client Script to Call",
+	"type": "string"
+}, {
+	"hint": "Name the method to invoke on the script. Applies on either script type source configuration. In the case of 'Internal Script', the class is considered ActionTableScriptAPI and the method must be statically defined.",
+	"name": "script_method",
+	"section": "Data",
+	"default_value": "getExampleData",
+	"label": "Script Method for Data",
+	"type": "string"
+}, {
+	"hint": "If using a table source, this is the encoded query to apply; if using a scripted source, this is passed as the \"query\" argument to the method (for example: this.getParameter(\"query\") in a client callable script include)",
+	"name": "query",
+	"section": "Data",
+	"label": "Data Query",
+	"type": "string"
+}]

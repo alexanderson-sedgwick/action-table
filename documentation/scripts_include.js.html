@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: scripts/include.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: scripts/include.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/** @module ScriptIncludes */
+var ActionTableScriptAPI = Class.create();
+/**
+ * Contains assistive methods for working with the ActionTable widget and acts as
+ * an anchor point for leveraging server-side data with script includes while not
+ * using the SPGlideAJAX functionality.
+ * 
+ * Note that ActionTable supports pulling data from a client callable script include
+ * as well as leveraging the REST API (Though authentication may pose issues with REST).
+ * 
+ * Extending this class instead of AbstractAjaxProcessor is not necessary from a
+ * functionality perspective, but does help to track or imply why that script
+ * exists.
+ * @class module:ScriptIncludes.ActionTableScriptAPI
+ */
+ActionTableScriptAPI.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+	"type": "ActionTableScriptAPI",
+	"getFieldDescription": ActionTableScriptAPI.getFieldDescription,
+	"finishQuery": ActionTableScriptAPI.finishQuery,
+	"toJSON": ActionTableScriptAPI.toJSON
+});
+
+/**
+ * Takes a general query and flushes out the record data with field descriptors.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#finishQuery
+ * @static
+ * @param {GlideRecord} queried That has the search parameters entered and `query()`
+ * 		has been called.
+ * @return {Array} With 
+ */
+ActionTableScriptAPI.finishQuery = function(queried) {
+	var result = [],
+		build,
+		keys,
+		key,
+		i;
+
+	if(queried.next()) {
+		keys = Object.keys(queried);
+		do {
+			build = {};
+			for(i=0; i&lt;keys.length; i++) {
+				key = keys[i];
+				build[key] = ActionTableScriptAPI.getFieldDescription(queried, key);
+			}
+			result.push(build);
+		} while(queried.next());
+	}
+
+	return result;
+};
+
+
+/**
+ * Retrieve the value for the field along with additional descriptive information about the field
+ * in an object to add to the row data.
+ * 
+ * This does create somewhat of a duplication of data as this extra data will be the same across
+ * several rows.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#getFieldDescription
+ * @static
+ * @param {GlideRecord} record 
+ * @param {String} name 
+ * @returns {Object} With properties; display_value, value, type, label
+ */
+ActionTableScriptAPI.getFieldDescription = function(record, name) {
+	var element = record.getElement(name),
+		field = {};
+
+	field.display_value = record.getDisplayValue(name);
+	field.value = record.getValue(name);
+	if(record) {
+		field.type = element.getED().getInternalType();
+		field.label = element.getLabel();
+	}
+	field.display = field.display_value;
+	field.descriptive = true;
+
+	return field;
+};
+
+/**
+ * Convert a GlideRecord's data to JSON.
+ * 
+ * This method does _NOT_ use `getFieldDescription` as that isn't the expected mode for
+ * the ActionTable widget. If looking for more flushed out data, use the `finishQuery`
+ * method instead.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#toJSON
+ * @static
+ * @param {GlideRecord} record 
+ * @return {Object}
+ */
+ActionTableScriptAPI.toJSON = function (record, raw) {
+	raw = raw || {};
+	var keys = Object.keys(record),
+		json = {},
+		i;
+
+	json.$search = "";
+	if (typeof (record.getValue) === "function") {
+		for (i = 0; i &lt; keys.length; i++) {
+			json[keys[i]] = raw[keys[i]] ? record.getValue(keys[i]) : record.getDisplayValue(keys[i]);
+		}
+	} else {
+		for (i = 0; i &lt; keys.length; i++) {
+			json[keys[i]] = record[keys[i]];
+		}
+	}
+
+	return json;
+};
+
+/**
+ * Pull general data from a table.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#getTableData
+ * @param {String} table To query
+ * @param {String} query Encoded Query to pass into the query.
+ * @param {Number} [page_size] Optional limiter for number of rows to retrieve.
+ * @param {Number} [page] Optional offset for getting a specific page of data.
+ * @return {Array} Of records.
+ */
+ActionTableScriptAPI.prototype.getTableData = ActionTableScriptAPI.getTableData = function (table, query, page_size, page) {
+	var search = new GlideRecord(table),
+		offset = page * page_size,
+		result = [],
+		i;
+
+	search.addEncodedQuery(query);
+	search.query();
+	if (search.hasNext()) {
+		for (i = 0; i &lt; offset; i++) {
+			search.next();
+		}
+		while (search.next()) {
+			result.push(ActionTableScriptAPI.toJSON(search));
+		}
+	}
+
+	return result;
+};
+
+/**
+ * Returns non-persistent random data; If a page is requested twice, the data will not be the same.
+ * 
+ * Uses page_size to gauge the amount of data to generate.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#generateExampleData
+ * @static
+ * @param {String} filter 
+ * @param {Number} page_size Defaults to 30
+ * @return {Array} Length either 5 * page_size or 30 of semi-random.
+ */
+ActionTableScriptAPI.generateExampleData = function (filter, page_size) {
+	var result = [],
+		amount;
+
+	if(page_size) {
+		amount = page_size * 10;
+	} else {
+		amount = 30;
+	}
+
+	for (var i = 0; i &lt; amount; i++) {
+		result.push(ActionTableScriptAPI.toJSON({
+			"name": "Name Test " + i,
+			"short_description": "Short Description " + i,
+			"sys_id": "abcd_" + i,
+			"state": Math.random() &lt; .3 ? "inactive" : "active"
+		}));
+	}
+
+	return result;
+};
+
+/**
+ * Returns non-persistent random data; If a page is requested twice, the data will not be the same.
+ * 
+ * Uses page_size to gauge the amount of data to generate.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#getExampleData
+ * @param {String} filter 
+ * @param {Number} page_size Defaults to 30
+ * @return {Array} Length either 5 * page_size or 30 of semi-random.
+ */
+ActionTableScriptAPI.prototype.getExampleData = function(filter, page_size) {
+	page_size = page_size || this.getParameter("page_size");
+	filter = filter || this.getParameter("filter");
+	return JSON.stringify({
+		"rows": ActionTableScriptAPI.generateExampleData(filter, page_size)
+	});
+};
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
+	
+		on Thu Dec 2nd 2021
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

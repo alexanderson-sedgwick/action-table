@@ -1,0 +1,2138 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2021-12-03 03:50:58">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description>Moderately simple Service Portal widget made for data source flexibility</description>
+<inserted/>
+<name>Action Table Widget</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>3bde92b707400110e1ecf1d08c1ed0ac</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>48c2eff307040110e1ecf1d08c1ed06e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ws_definition_94ccbdc8db27f05447217d95f39619cd</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_definition"><sys_ws_definition action="INSERT_OR_UPDATE"><active>true</active><base_uri>/api/caw/actiontabledemoapi</base_uri><consumes>application/json,application/xml,text/xml</consumes><consumes_customized>false</consumes_customized><default_version>No active default version</default_version><doc_link/><enforce_acl/><is_versioned>false</is_versioned><name>ActionTableDemoAPI</name><namespace>caw</namespace><produces>application/json,application/xml,text/xml</produces><produces_customized>false</produces_customized><service_id>actiontabledemoapi</service_id><short_description/><sys_class_name>sys_ws_definition</sys_class_name><sys_created_by>Alexander.Anderson@sedgwick.com</sys_created_by><sys_created_on>2021-10-27 08:17:19</sys_created_on><sys_id>94ccbdc8db27f05447217d95f39619cd</sys_id><sys_mod_count>2</sys_mod_count><sys_name>ActionTableDemoAPI</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ws_definition_94ccbdc8db27f05447217d95f39619cd</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-12-03 01:42:32</sys_updated_on></sys_ws_definition></record_update>]]></payload>
+<payload_hash>82021512</payload_hash>
+<remote_update_set display_value="Action Table Widget">48c2eff307040110e1ecf1d08c1ed06e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>00c2eff307040110e1ecf1d08c1ed070</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d7df513790000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<table/>
+<target_name>ActionTableDemoAPI</target_name>
+<type>Scripted REST API</type>
+<update_domain>global</update_domain>
+<update_guid>7255cfbfe1c001106f50000f62ae8433</update_guid>
+<update_guid_history>7255cfbfe1c001106f50000f62ae8433:82021512,cc64477f4bc001105d1749e248893ef4:-478498015</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sp_angular_provider_1861a2f307800110e1ecf1d08c1ed06b</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_angular_provider"&gt;&lt;sp_angular_provider action="INSERT_OR_UPDATE"&gt;&lt;name&gt;SPGlideAjax&lt;/name&gt;&lt;script&gt;&lt;![CDATA[function SPGlideAjax($http) {
+	/** @module AngularProviders */
+
+	/**
+	 * A simplified version of GlideAJAX for use within the Service Portal.
+	 *
+	 * This specifically implements getAnswer and getXMLAnswer with some modernization
+	 * for Promise support through Angular's $http service.
+	 * @class module:AngularProviders.SPGlideAjax
+	 * @param {$http} $http
+	 * @example
+	 * // Script Include
+	 * var Example = Class.create();
+	 * Example.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+	 * 	"type": "Example",
+	 * 	"functionA": function() {
+	 * 		return this.getParameter("a");
+	 * 	}
+	 * });
+	 * 
+	 * // Client Script
+	 * function _controller($scope, SPGlideAjax) {
+	 *	var ga = new SPGlideAjax("Example");
+	 *	ga.addParam("sysparm_name", "functionA");
+	 *	ga.addParam("a", 9);
+	 *	// (This will print "9" as a warning to the browser's console)
+	 *	ga.getXMLAnswer(console.warn);
+	 *}
+	 */
+
+	/**
+	 * Static space reference for quick replacement.
+	 * @property regexSpace
+	 * @type RegExp
+	 * @priavte
+	 * @static
+	 */
+	var regexSpace = / /g;
+
+	/**
+	 * Service-Now's GlideAjax works with form data strings instead of JSON,
+	 * so this is used to convert the parameters to the appropriate format.
+	 * @method module:AngularProviders.SPGlideAjax#serializeToForm
+	 * @priavte
+	 * @static
+	 * @param {Object} data The object to parse into form data. The values off the object
+	 * 		should be easily represented as strings or issues may occur.
+	 * @return {String} Form data string of the data in the passed object
+	 */
+	var serializeToForm = function(data) {
+		var keys = Object.keys(data),
+			encoding = [],
+			x;
+
+		for (x = 0; x &lt; keys.length; x++) {
+			encoding.push(encodeURIComponent(keys[x]) + "=" + encodeURIComponent(data[keys[x]] ? data[keys[x]].toString() : ""));
+		}
+
+		return encoding.join("&amp;").replace(regexSpace, "+");
+	};
+
+	/**
+	 * General options to use with all $HTTP calls
+	 * @property generalOptions
+	 * @type Object
+	 * @private
+	 * @static
+	 */
+	var generalOptions = {
+		"headers": {
+			"content-type": "application/x-www-form-urlencoded; charset=utf-8"
+		}
+	};
+
+	// The actual class constructor returned by the Factory declaration in Angular
+	return function(processor) {
+		var factory = this,
+			parameters = {};
+		parameters.sysparm_processor = processor;
+		parameters.sysparm_scope = "global";
+		parameters.sysparm_want_session_messages = "true";
+
+		/**
+		 * Uses the parameters object to handle processing.
+		 *
+		 * If the sysparm_name property is missing, a warning is sent to the
+		 * console for developer awareness.
+		 * @method module:AngularProviders.SPGlideAjax#getAnswer
+		 * @param {Function} callback Takes callback(answer, error) and resolves appropriately
+		 * 		the same as the returned promise.
+		 * @return {Promise} The promise resolves with the answer XML element on
+		 * 		success or an Error object on failure.
+		 */
+		this.getAnswer = function(callback) {
+			if (!parameters.sysparm_name) {
+				console.warn("GlideAJAX call with no sysparm_name defined; Call addParam('sysparm_name', '[ScriptInclude Method Name]') prior to calling getXMLAnswer");
+			}
+
+			return $http.post("/xmlhttp.do", serializeToForm(parameters), generalOptions)
+			.then(function(response) {
+				var el = $(response.data),
+					answer;
+				if (el &amp;&amp; el.length &gt;= 2 &amp;&amp; el[1].getAttribute) {
+					answer = el[1];
+					if (callback) {
+						callback(answer);
+					}
+					return answer;
+				} else {
+					if (callback) {
+						callback(null);
+					}
+					return null;
+				}
+			});
+		};
+
+		/**
+		 * Sets a parameter for a pending AJAX request.
+		 * @method module:AngularProviders.SPGlideAjax#addParam
+		 * @param {String} field The name of the field to be passed.
+		 * @param {String} value The value to be passed for that field.
+		 */
+		this.addParam = function(field, value) {
+			parameters[field] = value;
+		};
+
+		/**
+		 * Get the answer property from the returned XML.
+		 * @method module:AngularProviders.SPGlideAjax#getXMLAnswer
+		 * @param {Function} callback Takes callback(answer, error) and resolves appropriately
+		 * 		the same as the returned promise.
+		 * @return {Promise} Resolves on success with the answer string and on failure
+		 * 		throws to the catch chain.
+		 */
+		this.getXMLAnswer = function(callback) {
+			return factory.getAnswer()
+			.then(function(answer) {
+				if (answer &amp;&amp; answer.getAttribute) {
+					answer = answer.getAttribute("answer");
+				} else {
+					answer = null;
+				}
+				if (!answer) {
+					answer = null;
+				}
+				if (callback) {
+					callback(answer);
+				}
+			}, callback);
+		};
+	};
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sp_angular_provider&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-12-02 23:05:51&lt;/sys_created_on&gt;&lt;sys_id&gt;1861a2f307800110e1ecf1d08c1ed06b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;SPGlideAjax&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_angular_provider_1861a2f307800110e1ecf1d08c1ed06b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-12-02 23:05:51&lt;/sys_updated_on&gt;&lt;type&gt;service&lt;/type&gt;&lt;/sp_angular_provider&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1332562716</payload_hash>
+<remote_update_set display_value="Action Table Widget">48c2eff307040110e1ecf1d08c1ed06e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>04c2eff307040110e1ecf1d08c1ed06f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d7d65a1320000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<table/>
+<target_name>SPGlideAjax</target_name>
+<type>Widget Angular Provider</type>
+<update_domain>global</update_domain>
+<update_guid>7b71ee33a980011092f948d0fef84dcd</update_guid>
+<update_guid_history>7b71ee33a980011092f948d0fef84dcd:-1332562716</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>m2m_sp_ng_pro_sp_widget_c716c7ff07c00110e1ecf1d08c1ed018</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget"><m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE"><sp_angular_provider display_value="SPGlideAjax">1861a2f307800110e1ecf1d08c1ed06b</sp_angular_provider><sp_widget display_value="ActionTable">ab73437f07c00110e1ecf1d08c1ed0a9</sp_widget><sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-12-03 01:45:50</sys_created_on><sys_id>c716c7ff07c00110e1ecf1d08c1ed018</sys_id><sys_mod_count>0</sys_mod_count><sys_name>SPGlideAjax.ActionTable</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>m2m_sp_ng_pro_sp_widget_c716c7ff07c00110e1ecf1d08c1ed018</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-12-03 01:45:50</sys_updated_on></m2m_sp_ng_pro_sp_widget></record_update>]]></payload>
+<payload_hash>24292827</payload_hash>
+<remote_update_set display_value="Action Table Widget">48c2eff307040110e1ecf1d08c1ed06e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>4cc2eff307040110e1ecf1d08c1ed06e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d7df815480000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<table/>
+<target_name>SPGlideAjax.ActionTable</target_name>
+<type>Angular Providers</type>
+<update_domain>global</update_domain>
+<update_guid>cf16c7ffb1c0011055cca6102392d319</update_guid>
+<update_guid_history>cf16c7ffb1c0011055cca6102392d319:24292827</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_dd4ffa7b07c00110e1ecf1d08c1ed02b</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.ActionTableDemoAssets&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description&gt;Demo script include for getting asset data.&lt;/description&gt;&lt;name&gt;ActionTableDemoAssets&lt;/name&gt;&lt;script&gt;&lt;![CDATA[/** @module ScriptIncludes */
+ActionTableDemoAssets = Class.create();
+/**
+ * Demo script include for getting asset data.
+ * @class module:ScriptIncludes.ActionTableDemoAssets
+ */
+ActionTableDemoAssets.prototype = Object.extendsObject(ActionTableScriptAPI, {
+    "type": "ActionTableDemoAssets",
+	/**
+	 * Get assets for the current user.
+	 * @method module:ScriptIncludes.ActionTableDemoAssets#getMyAssets
+	 * @returns {String} JSON for the array of assets
+	 */
+	"getMyAssets": function() {
+		var search = new GlideRecord("alm_asset"),
+			result = [],
+			loading;
+		search.addQuery("assigned_to", gs.getUserID());
+		search.addQuery("install_status", "!=", "7");
+		search.query();
+		while(search.next()) {
+			loading = this.getJSON(search);
+			result.push(loading);
+			if(!loading.ci) {
+				loading.$status_class = "btn btn-danger";
+				loading.$status_text = "No Configuration Item is associated with this asset";
+				loading.$status_icon = "fa fa-exclamation-triangle";
+			} else if(!loading.assigned) {
+				loading.$status_class = "btn btn-warning";
+				loading.$status_text = "This asset has no assignment date";
+				loading.$status_icon = "fa fa-exclamation-triangle";
+			}
+		}
+		return JSON.stringify({
+			"rows": result
+		});
+	},
+    "type": "ActionTableDemoAssets",
+	/**
+	 * Add worknotes to the indicated asset.
+	 * @method module:ScriptIncludes.ActionTableDemoAssets#assetSubstatus
+	 * @param {String} asset_id SysID for the asset to update
+	 * @param {String} substatus To include in the work note.
+	 */
+	"assetSubstatus": function(asset_id, substatus) {
+		var asset = new GlideRecord("alm_asset");
+		asset_id = asset_id || this.getParameter("asset_id");
+		substatus = substatus || this.getParameter("substatus");
+		if(asset.get(asset_id)) {
+			// asset.setValue("substatus", this.getParameter("substatus"));
+			asset.work_notes = "This should move to " + substatus + " ( [code]&lt;a href=\"/sys_user.do?sys_id=" + gs.getUserID() + "\"&gt;" + gs.getUserDisplayName() + "&lt;/a&gt;[/code] )";
+			asset.update();
+		}
+	}
+});
+
+
+/**
+
+Example Column Description JSON
+[
+    {
+        "label": "Name",
+        "field": "display_name"
+    },
+    {
+        "label": "Model",
+        "field": "model"
+    },
+    {
+        "label": "Serial Number",
+        "field": "serial_number"
+    },
+    {
+        "label": "Installed",
+        "field": "install_date"
+    },
+    {
+        "label": "Status",
+        "field": "substatus"
+    }
+]
+
+Example Action Description JSON
+[
+    {
+        "label": "",
+        "icon": "fa fa-info-circle",
+        "title": "{{display_name}}",
+        "action": "form-modal",
+        "perform": "/alm_asset.do?sys_id={{sys_id}}",
+        "classes": "btn btn-success",
+        "table": "alm_hardware",
+        "sys_id": "{{sys_id}}",
+        "view": "default"
+    },
+    {
+        "label": "",
+        "icon": "fa fa-external-link",
+        "field": "name",
+        "action": "newlink",
+        "classes": "btn btn-success",
+        "perform": "/alm_asset.do?sys_id={{sys_id}}"
+    },
+    {
+        "label": "Sold",
+        "action": "ajax-call",
+        "perform": "/sys_user.do?sys_id={{sys_id}}",
+        "classes": "btn btn-primary",
+        "tbl_class": "ActionTableDemoAssets",
+        "tbl_method": "assetSubstatus",
+		"asset_id": "{{sys_id}}",
+        "substatus": "sold"
+    },
+    {
+        "label": "Donated",
+        "action": "ajax-call",
+        "perform": "/sys_user.do?sys_id={{sys_id}}",
+        "classes": "btn btn-primary",
+        "tbl_class": "ActionTableDemoAssets",
+        "tbl_method": "assetSubstatus",
+		"asset_id": "{{sys_id}}",
+        "substatus": "donated"
+    }
+]
+ */
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-12-03 01:15:57&lt;/sys_created_on&gt;&lt;sys_id&gt;dd4ffa7b07c00110e1ecf1d08c1ed02b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;ActionTableDemoAssets&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_dd4ffa7b07c00110e1ecf1d08c1ed02b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-12-03 01:15:57&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>108014521</payload_hash>
+<remote_update_set display_value="Action Table Widget">48c2eff307040110e1ecf1d08c1ed06e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>4cc2eff307040110e1ecf1d08c1ed06f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d7ddcba110000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<table/>
+<target_name>ActionTableDemoAssets</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>d94ffa7b90c0011055d8286c773e6f30</update_guid>
+<update_guid_history>d94ffa7b90c0011055d8286c773e6f30:108014521</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_07f3a27707800110e1ecf1d08c1ed041</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.ActionTableScriptAPI&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description&gt;Contains assistive methods for working with the ActionTable widget and acts as&amp;#13;
+an anchor point for leveraging server-side data with script includes while not&amp;#13;
+using the SPGlideAJAX functionality.&amp;#13;
+&amp;#13;
+Note that ActionTable supports pulling data from a client callable script include&amp;#13;
+as well as leveraging the REST API (Though authentication may pose issues with REST).&amp;#13;
+&amp;#13;
+Extending this class instead of AbstractAjaxProcessor is not necessary from a&amp;#13;
+functionality perspective, but does help to track or imply why that script&amp;#13;
+exists.&lt;/description&gt;&lt;name&gt;ActionTableScriptAPI&lt;/name&gt;&lt;script&gt;&lt;![CDATA[/** @module ScriptIncludes */
+var ActionTableScriptAPI = Class.create();
+/**
+ * Contains assistive methods for working with the ActionTable widget and acts as
+ * an anchor point for leveraging server-side data with script includes while not
+ * using the SPGlideAJAX functionality.
+ * 
+ * Note that ActionTable supports pulling data from a client callable script include
+ * as well as leveraging the REST API (Though authentication may pose issues with REST).
+ * 
+ * Extending this class instead of AbstractAjaxProcessor is not necessary from a
+ * functionality perspective, but does help to track or imply why that script
+ * exists.
+ * @class module:ScriptIncludes.ActionTableScriptAPI
+ */
+ActionTableScriptAPI.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+	"type": "ActionTableScriptAPI",
+	"getFieldDescription": ActionTableScriptAPI.getFieldDescription,
+	"finishQuery": ActionTableScriptAPI.finishQuery,
+	"toJSON": ActionTableScriptAPI.toJSON
+});
+
+/**
+ * Takes a general query and flushes out the record data with field descriptors.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#finishQuery
+ * @static
+ * @param {GlideRecord} queried That has the search parameters entered and `query()`
+ * 		has been called.
+ * @return {Array} With 
+ */
+ActionTableScriptAPI.finishQuery = function(queried) {
+	var result = [],
+		build,
+		keys,
+		key,
+		i;
+
+	if(queried.next()) {
+		keys = Object.keys(queried);
+		do {
+			build = {};
+			for(i=0; i&lt;keys.length; i++) {
+				key = keys[i];
+				build[key] = ActionTableScriptAPI.getFieldDescription(queried, key);
+			}
+			result.push(build);
+		} while(queried.next());
+	}
+
+	return result;
+};
+
+
+/**
+ * 
+ * @method module:ScriptIncludes.ActionTableScriptAPI#getFieldDescription
+ * @static
+ * @param {GlideRecord} record 
+ * @param {String} name 
+ * @returns {Object} With properties; display_value, value, type, label
+ */
+ActionTableScriptAPI.getFieldDescription = function(record, name) {
+	var element = record.getElement(name),
+		field = {};
+
+	field.display_value = record.getDisplayValue(name);
+	field.value = record.getValue(name);
+	if(record) {
+		field.type = element.getED().getInternalType();
+		field.label = element.getLabel();
+	}
+	field.display = field.display_value;
+	field.descriptive = true;
+
+	return field;
+};
+
+/**
+ * Convert a GlideRecord's data to JSON.
+ * 
+ * This method does _NOT_ use `getFieldDescription` as that isn't the expected mode for
+ * the ActionTable widget. If looking for more flushed out data, use the `finishQuery`
+ * method instead.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#toJSON
+ * @static
+ * @param {GlideRecord} record 
+ * @return {Object}
+ */
+ActionTableScriptAPI.toJSON = function (record, raw) {
+	raw = raw || {};
+	var keys = Object.keys(record),
+		json = {},
+		i;
+
+	json.$search = "";
+	if (typeof (record.getValue) === "function") {
+		for (i = 0; i &lt; keys.length; i++) {
+			json[keys[i]] = raw[keys[i]] ? record.getValue(keys[i]) : record.getDisplayValue(keys[i]);
+		}
+	} else {
+		for (i = 0; i &lt; keys.length; i++) {
+			json[keys[i]] = record[keys[i]];
+		}
+	}
+
+	return json;
+};
+
+/**
+ * Pull general data from a table.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#getTableData
+ * @param {String} table To query
+ * @param {String} query Encoded Query to pass into the query.
+ * @param {Number} [page_size] Optional limiter for number of rows to retrieve.
+ * @param {Number} [page] Optional offset for getting a specific page of data.
+ * @return {Array} Of records.
+ */
+ActionTableScriptAPI.prototype.getTableData = ActionTableScriptAPI.getTableData = function (table, query, page_size, page) {
+	var search = new GlideRecord(table),
+		offset = page * page_size,
+		result = [],
+		i;
+
+	search.addEncodedQuery(query);
+	search.query();
+	if (search.hasNext()) {
+		for (i = 0; i &lt; offset; i++) {
+			search.next();
+		}
+		while (search.next()) {
+			result.push(ActionTableScriptAPI.toJSON(search));
+		}
+	}
+
+	return result;
+};
+
+/**
+ * Returns non-persistent random data; If a page is requested twice, the data will not be the same.
+ * 
+ * Uses page_size to gauge the amount of data to generate.
+ * @method module:ScriptIncludes.ActionTableScriptAPI#getExampleData
+ * @param {String} filter 
+ * @param {Number} page_size Defaults to 30
+ * @return {Array} Length either 5 * page_size or 30 of semi-random.
+ */
+ActionTableScriptAPI.prototype.getExampleData = ActionTableScriptAPI.getExampleData = function (filter, page_size) {
+	var result = [],
+		amount;
+
+	if(page_size) {
+		amount = page_size * 10;
+	} else {
+		amount = 30;
+	}
+
+	for (var i = 0; i &lt; amount; i++) {
+		result.push(ActionTableScriptAPI.toJSON({
+			"name": "Name Test " + i,
+			"short_description": "Short Description " + i,
+			"sys_id": "abcd_" + i,
+			"state": Math.random() &lt; .3 ? "inactive" : "active"
+		}));
+	}
+
+	return result;
+};
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-12-02 23:20:26&lt;/sys_created_on&gt;&lt;sys_id&gt;07f3a27707800110e1ecf1d08c1ed041&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;ActionTableScriptAPI&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_07f3a27707800110e1ecf1d08c1ed041&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-12-02 23:21:24&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1147810675</payload_hash>
+<remote_update_set display_value="Action Table Widget">48c2eff307040110e1ecf1d08c1ed06e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>88c2eff307040110e1ecf1d08c1ed06f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d7d73da590000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<table/>
+<target_name>ActionTableScriptAPI</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>1305ee7749800110e79ed5348fed0910</update_guid>
+<update_guid_history>1305ee7749800110e79ed5348fed0910:-1147810675,9dd426738b800110a2bcf3aa38ee755e:270547213</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ws_operation_1b6503ff07c00110e1ecf1d08c1ed04c</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri/&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;GET&lt;/http_method&gt;&lt;name&gt;example&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process(request, response) {
+	response.setContentType("application/json");
+	response.setStatus(200);
+	return {
+		"rows": ActionTableScriptAPI.getExampleData()
+	};
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/caw/actiontabledemoapi/example&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/example&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;false&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-12-03 01:43:46&lt;/sys_created_on&gt;&lt;sys_id&gt;1b6503ff07c00110e1ecf1d08c1ed04c&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;example&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_1b6503ff07c00110e1ecf1d08c1ed04c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-12-03 01:44:12&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="ActionTableDemoAPI"&gt;94ccbdc8db27f05447217d95f39619cd&lt;/web_service_definition&gt;&lt;web_service_version/&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1256011206</payload_hash>
+<remote_update_set display_value="Action Table Widget">48c2eff307040110e1ecf1d08c1ed06e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>c0c2eff307040110e1ecf1d08c1ed070</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d7df697540000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<table/>
+<target_name>example</target_name>
+<type>Scripted REST Resource</type>
+<update_domain>global</update_domain>
+<update_guid>03b5cfbf5bc00110f004479198fc8c4a</update_guid>
+<update_guid_history>03b5cfbf5bc00110f004479198fc8c4a:1256011206,f8a50fbfc6c001101c490e6db588daa7:-62853224</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sp_widget_ab73437f07c00110e1ecf1d08c1ed0a9</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function($scope, $http, spModal, SPGlideAjax) {
+	/** @module WidgetComponents */
+	/**
+	 * The Angular controller for managing the Action Table
+	 * @class module:WidgetComponents.ActionTableController
+	 */
+	/**
+	 * Identitifies the localStorage key used for saving and recovering the current state
+	 * of the table's rendering.
+	 * @property stateKey
+	 * @type String
+	 * @private
+	 */
+	/**
+	 * Time to wait to allow typing to continue before updating the corpus.
+	 * @property filterInterval
+	 * @default 200
+	 * @type Number
+	 * @private
+	 */
+	var stateKey = "actiontable:state:" + $scope.options.id,
+		loading = localStorage.getItem(stateKey),
+		filterInterval = 200,
+		fieldTracking = {},
+		fieldList = [],
+		mapDataFields,
+		clearFault,
+		endReload,
+		filtering,
+		mapFields,
+		saveState,
+		sortData,
+		setIcons,
+		refresh,
+		visible,
+		timing,
+		fillin,
+		fault,
+		x;
+
+	/**
+	 * Save an encoded value of the scope's state value to give persistence to the table's
+	 * rendering.
+	 * @method module:WidgetComponents.ActionTableController#saveState
+	 * @private
+	 */
+	saveState = function() {
+		localStorage.setItem(stateKey, JSON.stringify($scope.state));
+	};
+	/**
+	 * Updates the icons for various objects for cached rendering purposes
+	 * @method module:WidgetComponents.ActionTableController#setIcons
+	 */
+	setIcons = function() {
+		if($scope.columns) {
+			var column;
+			for(x=0; x&lt;$scope.columns.length; x++) {
+				column = $scope.columns[x];
+				if(column &amp;&amp; !column.no_sort) {
+					if(column.field === $scope.state.order) {
+						if($scope.state.above === 1) {
+							column.sort_icon = "fa fa-sort-alpha-asc";
+						} else {
+							column.sort_icon = "fa fa-sort-alpha-desc";
+						}
+					} else {
+						column.sort_icon = "fa fa-sort";
+					}
+				}
+			}
+		}
+	};
+	/**
+	 * Sorting function used to sort the data.rows array based on the current state values.
+	 * @method module:WidgetComponents.ActionTableController#sortData
+	 * @param a
+	 * @param b
+	 */
+	sortData = function(a, b) {
+		if($scope.state.order) {
+			if(a &amp;&amp; b) {
+				var cA = a[$scope.state.order],
+					cB = b[$scope.state.order];
+				if(cA &gt; cB) {
+					return $scope.state.above;
+				} else if(cA &lt; cB) {
+					return $scope.state.below;
+				}
+			} else if(a &amp;&amp; !b) {
+				return $scope.state.above;
+			} else if(!a &amp;&amp; b) {
+				return $scope.state.below;
+			}
+			return 0;
+		}
+	};
+	/**
+	 * 
+	 * @method module:WidgetComponents.ActionTableController#visible
+	 * @param {Object} row
+	 */
+	visible = function(row) {
+		return !$scope.state.searching || (row &amp;&amp; typeof(row.$search) === "string" &amp;&amp; row.$search.indexOf($scope.state.searching) !== -1);
+	};
+	/**
+	 * Timed function used to balance user typing with when to fire updating the results.
+	 * @method module:WidgetComponents.ActionTableController#filtering
+	 * @private
+	 */
+	filtering = function() {
+		var now = Date.now();
+		if(timing &amp;&amp; timing &lt; now) {
+			// Maintain case insensitive search but don't mutate the user input
+			$scope.state.searching = $scope.state.search.toLowerCase();
+			$scope.state.page = 0;
+			$scope.filterIcon = "fa-filter";
+			$scope.loadCorpus();
+			$scope.update();
+			timing = null;
+			saveState();
+		} else {
+			setTimeout(filtering, filterInterval);
+		}
+	};
+	/**
+	 * Used to keep the data up to date if a refresh interval has been specified.
+	 * @method module:WidgetComponents.ActionTableController#refresh
+	 * @private
+	 */
+	refresh = function() {
+		if(!isNaN($scope.options.refresh_interval) &amp;&amp; 60000 &lt;= $scope.options.refresh_interval) {
+			$scope.reloadData();
+			setTimeout(refresh, $scope.options.refresh_interval);
+		}
+	};
+	/**
+	 * Waits 1 second to reset the reload icon to give the visual impact time.
+	 * @method module:WidgetComponents.ActionTableController#endReload
+	 * @private
+	 */
+	endReload = function() {
+		setTimeout(function() {
+			$scope.reload_icon = "fa-refresh";
+			$scope.update();
+		}, 1000);
+	};
+	/**
+	 * Use template filling to create a new object whose values mimic the fill object but
+	 * with templates completed based on the row. Due to the regular expressions in volved
+	 * and the number of search/replacements that can be triggered here, this method should
+	 * be used sparingly.
+	 * @method module:WidgetComponents.ActionTableController#fillin
+	 * @param {Object} fill Object whose values are to be completed
+	 * @param {Object} row Source for values
+	 */
+	fillin = function(fill, row) {
+		var keys = Object.keys(fill),
+			result = {},
+			i;
+		for(i=0; i&lt;keys.length; i++) {
+			result[keys[i]] = $scope.completeTemplate(row, fill[keys[i]]);
+		}
+		return result;
+	};
+	/**
+	 * Internal method for displaying an error that was encountered.
+	 * @method module:WidgetComponents.ActionTableController#fault
+	 * @private
+	 * @param {Error} error That occurred and should be displayed
+	 */
+	fault = function(error) {
+		var message = "STSTable: Data Request from ";
+		if($scope.options.data_source == "ajax") {
+			message += "Client Script[" + $scope.options.script + "." + $scope.options.script_method + "]: ";
+		} else if($scope.options.data_source == "snapi") {
+			message += "Service-Now API Endpoint[" + $scope.options.endpoint + "]: ";
+		} else {
+			"Unknown Source: ";
+		}
+		console.error(message, $scope.error);
+		$scope.error = error;
+		$scope.update();
+	};
+	/**
+	 * Internal method for clearing an error that had been encountered if one such error exists.
+	 * @method module:WidgetComponents.ActionTableController#clearFault
+	 * @private
+	 */
+	clearFault = function() {
+		if($scope.error) {
+			$scope.error = null;
+			$scope.update();
+		}
+	};
+	/**
+	 * Updates the fieldTracking &amp; fieldList properties.
+	 * @method module:WidgetComponents.ActionTableController#mapDataFields
+	 */
+	mapDataFields = function() {
+		var i;
+
+		fieldList.splice(0);
+		if($scope.data.rows &amp;&amp; $scope.data.rows.length) {
+			for(i=0; i&lt;$scope.data.rows.length; i++) {
+				mapFields($scope.data.rows[i]);
+			}
+		}
+
+		fieldList.push.apply(fieldList, Object.keys(fieldTracking));
+	};
+	/**
+	 * Checks the object keys to ensure that all fields have a RegExp mapping in the `fieldTracking`
+	 * object.
+	 * @method module:WidgetComponents.ActionTableController#mapFields
+	 * @param {Object} row
+	 */
+	mapFields = function(row) {
+		var keys = Object.keys(row),
+			i;
+		for(i=0; i&lt;keys.length; i++) {
+			if(!fieldTracking[keys[i]]) {
+				fieldTracking[keys[i]] = new RegExp("\\{\\{" + keys[i] + "\\}\\}", "ig");
+			}
+		}
+	};
+
+	// Initialize local data for table management
+	try {
+		$scope.columns = JSON.parse($scope.options.columns);
+	} catch(parseException) {
+		console.error("Action Table: Failed to parse column specifications:", parseException, $scope.options.columns);
+		$scope.error = parseException;
+	}
+	try {
+		$scope.actions = JSON.parse($scope.options.actions);
+	} catch(parseException) {
+		console.error("Action Table: Failed to parse action specifications:", parseException, $scope.options.actions);
+		$scope.error = parseException;
+	}
+
+	/**
+	 * Handles displaying an error to the widget.
+	 * 
+	 * Generally set by calling the private function `fault`.
+	 * @property error
+	 * @type Error
+	 */
+	if($scope.data.error) {
+		$scope.error = new Error($scope.data.error);
+	}
+	/**
+	 * 
+	 * The displayed icon in the filter to give feedback to the user.
+	 * @property filterIcon
+	 * @type String
+	 */
+	$scope.filterIcon = "fa-filter";
+	/**
+	 * The displayed icon for reloading data to give feedback to the user.
+	 * @property filterIcon
+	 * @type String
+	 */
+	$scope.reload_icon = "fa-refresh";
+	/**
+	 * Each element contained here is an element that is valid after the rows have been
+	 * filtered by search and sort criteria.
+	 * @property corpus
+	 * @type Array
+	 */
+	$scope.corpus = [];
+	/**
+	 * Each element contained here is a row to render on the page. This is pared down to
+	 * only the rows that should render based on the current page and sourced from the
+	 * corpus array to follow search and sort criteria and drive a faster rendering.
+	 * @property render
+	 * @type Array
+	 */
+	$scope.render = [];
+	/**
+	 * Doubles as a page count and rendering array for ng-repeat.
+	 * @property pages
+	 * @type Array
+	 */
+	$scope.pages = [];
+
+	// Attempt to recover the previous state of the table, if any
+	/**
+	 * 
+	 * @property state
+	 * @type Object
+	 */
+	if(loading) {
+		try {
+			$scope.state = JSON.parse(loading);
+		} catch(loadException) {
+			console.error("ActionTable: State Loading Error: ", loadException);
+			$scope.state = {};
+		}
+	} else {
+		$scope.state = {};
+	}
+	/**
+	 * 
+	 * @property state.page
+	 * @type Number
+	 */
+	if($scope.state.page === undefined) {
+		$scope.state.page = 0;
+	}
+	/**
+	 * Used for filtering a row based on the values within it.
+	 * @property state.search
+	 * @type String
+	 */
+	if($scope.state.search === undefined) {
+		$scope.state.search = "";
+	}
+	/**
+	 * The number of rows to display per page.
+	 * @property state.size
+	 * @type Number
+	 */
+	if(!isNaN($scope.options.per_page) &amp;&amp; $scope.options.per_page &gt; 0) {
+		$scope.state.size = $scope.options.per_page;
+	} else if(isNaN($scope.state.size)) {
+		$scope.state.size = 20;
+	}
+	/**
+	 * As "select" elements match on strings, a string version of the `state.size`
+	 * value is copied here used for user control of the paging size. This is later
+	 * in a $watch statement to handle keeping size straight when changed this way.
+	 * 
+	 * Direct modifications to `state.size` after the widget has been created will
+	 * NOT currently be reflected back to this value.
+	 * @property state.per_page
+	 * @type String
+	 */
+	$scope.state.per_page = $scope.state.size.toString();
+	/**
+	 * Names the column by which to sort rows using the field value of the column.
+	 * 
+	 * If the field does not exist, no ordering is explicitly performed.
+	 * @property state.order
+	 * @type String
+	 * @defaul null
+	 */
+	/**
+	 * Controls the sort ordering and is returned when `a` is considered to precede `b`.
+	 * @property state.above
+	 * @type Number
+	 * @default -1
+	 */
+	if($scope.state.above === undefined) {
+		$scope.state.above = -1;
+	}
+	/**
+	 * Controls the sort ordering and is returned when `a` is considered to procede `b`.
+	 * @property state.below
+	 * @type Number
+	 * @default 1
+	 */
+	if($scope.state.below === undefined) {
+		$scope.state.below = -1 * $scope.state.above;
+	}
+
+	// Cache regular expressions for quick template replacements based on the row's field values
+	mapDataFields();
+
+	// When the search string changes, trigger the filtering function to eventually update the rendered values
+	$scope.$watch("state.search", function() {
+		if(!timing) {
+			$scope.filterIcon = "fa-spinner fa-pulse";
+			$scope.update();
+			filtering();
+		}
+		timing = Date.now() + 2 * filterInterval;
+	});
+
+	// Watch for changes to the size string, likely by the corner select, to push the value into the state and update
+	$scope.$watch("state.per_page", function() {
+		$scope.state.size = parseInt($scope.state.per_page);
+		$scope.loadCorpus();
+		saveState();
+	});
+
+	/**
+	 * Change the direction of sorting or the column to sort by.
+	 * 
+	 * Calling on the currently sorted column toggles the sort direction.
+	 * 
+	 * Changing to a new column does NOT change the sort direction.
+	 * @method module:WidgetComponents.ActionTableController#reorder
+	 * @param {Object} column 
+	 */
+	$scope.reorder = function(column) {
+		if(column) {
+			if($scope.state.order === column.field) {
+				$scope.state.below *= -1;
+				$scope.state.above *= -1;
+			} else {
+				$scope.state.order = column.field;
+			}
+			$scope.loadCorpus();
+			saveState();
+			setIcons();
+		}
+	};
+
+	/**
+	 * Retrieves data from the server if necessary.
+	 * 
+	 * This is essesntially a stepping method for AJAX sourced data as the other 2 sources
+	 * (server script, and table) would already be populated here by the server initialization.
+	 * 
+	 * The SPGlideAjax is heavily favored for the ability to create new configurable data sources
+	 * without modifying the widget or its supporting pieces while also keeping the creating of
+	 * the data in a more traditionally understood form, Script Includes, instead of passing the
+	 * data through a more web traditional method such as an API, where Scripted APIs may get
+	 * heavier. Though support for such a process should be added and would also be handled here.
+	 * @method module:WidgetComponents.ActionTableController#loadData
+	 */
+	$scope.loadData = function() {
+		var request;
+		
+		clearFault();
+		switch($scope.options.data_source) {
+			case "ajax":
+				request = new SPGlideAjax($scope.options.script);
+				request.addParam("sysparm_name", $scope.options.script_method);
+				request.addParam("query", $scope.options.query);
+				request.getXMLAnswer($scope.receiveData);
+				break;
+			case "snapi":
+				if($scope.options.endpoint) {
+					if($scope.options.endpoint[0] !== "/") {
+						$scope.options.endpoint = "/" + $scope.options.endpoint;
+					}
+					$http.get($scope.options.endpoint + "?query=" + $scope.options.query)
+					.then(function(response) {
+						if(response.status === 200) {
+							$scope.receiveData(response.data.result);
+						} else {
+							fault(new Error("Malformed request for endpoint data - HTTP" + response.status + ": " + response.statusText));
+						}
+					}, fault);
+				} else {
+					fault(new Error("No 'endpoint' option is defined"));
+				}
+				break;
+			case "server":
+			case "table":
+				$scope.prepareData();
+				break;
+			default:
+				console.error("Unknown Data Source (data_source) option specified for STSTable widget[" + $scope.options.id + "]: ", $scope);
+				$scope.error = {
+					"message": "Unknown Data Source (data_source) option specified for widget.",
+					"options": $scope.options
+				};
+		}
+	};
+
+	/**
+	 * Called for receiving the text portion of a request for data. All text is assumed to be a JSON
+	 * object with the general format:
+	 * ```
+	 * {
+	 *     "rows": [{
+	 *         Object 1 Data...
+	 *     }, {
+	 *         Object 2 Data...
+	 *     }, {
+	 *         ...
+	 *     {, 
+	 *         Object N Data...
+	 *     }]
+	 * }
+	 * ```
+	 * 
+	 * An object is used to allow for other information to be present on the API call for use later.
+	 * @method module:WidgetComponents.ActionTableController#receiveData
+	 * @param {String} response 
+	 */
+	$scope.receiveData = function(response) {
+		var loading;
+		if(response) {
+			if(typeof(response) === "string") {
+				try {
+					loading = JSON.parse(response);
+				} catch(parseException) {
+					fault(parseException);
+				}
+			} else {
+				loading = response;
+			}
+			if(loading &amp;&amp; loading.rows instanceof Array) {
+				$scope.data.rows.splice(0);
+				$scope.data.rows.push.apply($scope.data.rows, loading.rows);
+				$scope.data.loaded = Date.now();
+				$scope.prepareData();
+			} else {
+				fault(new Error("Receive malformed data, must return a Object JSON with a \"rows\" property that contains the array to load"));
+			}
+		} else {
+			fault(new Error("Failed to receive any data"));
+		}
+	};
+
+
+	/**
+	 * Essentially prepares the data received from the server.
+	 * 
+	 * This primarily involves setting the `$search` property for easy lower cased
+	 * string index checks for filtering based on the columns and `options.filterable`.
+	 * 
+	 * Additionally, the data objectis emitted on the root scope for other widgets to
+	 * consume if needed under the event "ststable:data:[ID]" where "[ID]" is the table's
+	 * ID specified in options. This allows another widget on the same page as the table
+	 * to implement something akin to `$scope.$on("ststable:data:[ID]", $scope.processAPIData)`
+	 * to receive the data and perform any needed actions.
+	 * @method module:WidgetComponents.ActionTableController#loadData
+	 */
+	$scope.prepareData = function() {
+		var column,
+			load,
+			row,
+			c,
+			i;
+
+		if($scope.data.rows) {
+			for(i=0; i&lt;$scope.data.rows.length; i++) {
+				row = $scope.data.rows[i];
+				row.$search = "";
+				// Ensure that the visible columns are searchable
+				if($scope.options.filterable &amp;&amp; $scope.options.filterable.length) {
+					// Add additional columns that are flagged as filterable in the instance options
+					load = $scope.columns.concat($scope.options.filterable);
+				} else {
+					load = $scope.columns;
+				}
+				for(c=0; c&lt;load.length; c++) {
+					column = load[c];
+					if(typeof(row[column.field]) === "string") {
+						// Map to lower case; Filter is meant to be case insensitive
+						row.$search += " :: " + row[column.field].toLowerCase();
+					} else 
+					if(typeof(row[column.field]) === "object") {
+						// Handle Field Descriptor data
+						if(row[column.field].display) {
+							row.$search += " :: " + row[column.field].display.toLowerCase();
+						}
+					} else {
+						// Direct Value
+						row.$search += " :: " + row[column.field];
+					}
+				}
+			}
+			$scope.corpus.sort(sortData);
+		}
+
+		mapDataFields();
+		$scope.$root.$emit("ststable:data:" + $scope.options.id, $scope.data);
+		$scope.loadCorpus();
+	};
+
+	/**
+	 * Filter and sort the general data received from the server.
+	 * 
+	 * This serves as our cache for paging through the data set.
+	 * @method module:WidgetComponents.ActionTableController#loadCorpus
+	 */
+	$scope.loadCorpus = function() {
+		$scope.corpus.splice(0);
+		$scope.pages.splice(0);
+		var row,
+			i;
+
+		if($scope.data.rows) {
+			for(i=0; i&lt;$scope.data.rows.length; i++) {
+				row = $scope.data.rows[i];
+				if(visible(row)) {
+					$scope.corpus.push(row);
+				}
+			}
+			$scope.corpus.sort(sortData);
+		}
+
+		$scope.page_count = $scope.corpus.length/$scope.state.size;
+		for(i=0; i&lt;$scope.page_count; i++) {
+			$scope.pages.push(i + 1);
+		}
+
+		$scope.loadRender();
+	};
+
+	/**
+	 * Load data from the `corpus` to the `render` array for the current page being viewed.
+	 * @method module:WidgetComponents.ActionTableController#loadRender
+	 */
+	$scope.loadRender = function() {
+		$scope.render.splice(0);
+
+		var start = $scope.state.page * $scope.state.size,
+			end = start + $scope.state.size,
+			row,
+			i;
+
+		for(i=start; i&lt;end &amp;&amp; i&lt;$scope.corpus.length; i++) {
+			row = $scope.corpus[i];
+			if(row) {
+				$scope.render.push(row);
+			}
+		}
+
+		$scope.update();
+	};
+
+	/**
+	 * Sets the page and updates the `render` array for display via the `loadRender` method.
+	 * @method module:WidgetComponents.ActionTableController#toPage
+	 * @param {Number} page 
+	 */
+	$scope.toPage = function(page) {
+		$scope.state.page = page - 1;
+		$scope.loadRender();
+		saveState();
+	};
+
+	/**
+	 * 
+	 * @method module:WidgetComponents.ActionTableController#getPageClasses
+	 * @param {Number} page 
+	 * @returns {String}
+	 */
+	$scope.getPageClasses = function(page) {
+		if(page -1 === $scope.state.page) {
+			return "btn-primary";
+		} else {
+			return "btn-default";
+		}
+	};
+
+	/**
+	 * Check if an action is visible based on its `condition` object.
+	 * 
+	 * No condition object indicates it is always visible.
+	 * 
+	 * Condition checking is managed with the `checkConditions` function.
+	 * @method module:WidgetComponents.ActionTableController#actionVisible
+	 * @param {Object} row 
+	 * @param {Object} action 
+	 * @return {Boolean}
+	 */
+	$scope.actionVisible = function(row, action) {
+		if(action.condition) {
+			return $scope.checkCondition(row, action.condition);
+		}
+		return true;
+	};
+
+	/**
+	 * Process an action object for a row.
+	 * @method module:WidgetComponents.ActionTableController#processAction
+	 * @param {Object} row 
+	 * @param {Object} action 
+	 */
+	$scope.processAction = function(row, process) {
+		var buffer,
+			keys,
+			i;
+
+		switch(process.action) {
+			case "link":
+				buffer = $scope.completeTemplate(row, process.perform);
+				if(buffer[0] !== "/") {
+					buffer = "/" + buffer;
+				}
+				location = buffer;
+				break;
+			case "newlink":
+				buffer = $scope.completeTemplate(row, process.perform);
+				if(buffer[0] !== "/") {
+					buffer = "/" + buffer;
+				}
+				window.open(buffer, "_blank");
+				break;
+			case "form-modal":
+				process = fillin(process, row);
+				console.log("FilledIn: ", process);
+				spModal.open({
+					"shared": $scope.state,
+					"value": process,
+					"title": process.title,
+					"widget": "widget-form",
+					"widgetInput": process
+				}).then(function (/* button */) {
+					// User clicked "OK" - example; button = {"label":"OK","primary":true,"focus":true}
+				}, function(/* error */) {
+					// User clicked "Cancel", The close button on the dialog, or clicked outside the box
+				});
+				break;
+			case "ajax-call":
+				process = fillin(process, row);
+				keys = Object.keys(process);
+				buffer = new SPGlideAjax(process.tbl_class);
+				buffer.addParam("sysparm_name", process.tbl_method);
+				for(i=0; i&lt;keys.length; i++) {
+					buffer.addParam(keys[i], process[keys[i]]);
+				}
+				buffer.getXMLAnswer(function(/* response */) {
+					if(process.new_url &amp;&amp; process.new_url[0] !== "/") {
+						process.new_url = "/" + process.new_url;
+					}
+					switch(process.tbl_complete) {
+						case "redirect":
+							location = process.new_url;
+							break;
+						case "newwindow":
+							window.open(process.new_url, "_blank");
+							break;
+					}
+				});
+				break;
+		}
+	};
+
+	/**
+	 * Get the string to display for the value in row under the column's field value.
+	 * @method module:WidgetComponents.ActionTableController#renderValue
+	 * @param {Object} row Of data from which to get the value to render.
+	 * @param {Object} column Describing what data should be rendered.
+	 * @return {String} To place in the table
+	 */
+	$scope.renderValue = function(row, column) {
+		var point = row[column.field],
+			formatting,
+			buffer,
+			value;
+
+		buffer = typeof(point);
+		if(buffer === "object") {
+			formatting = point.type || column.formatting || buffer;
+			value = point.display;
+		} else {
+			formatting = column.formatting || buffer;
+			value = point;
+		}
+
+		switch(formatting) {
+			case "time":
+				buffer = new Date(value);
+				return buffer.toLocaleDateString() + " " + buffer.toLocaleTimeString();
+			case "date":
+				buffer = new Date(value);
+				return buffer.toLocaleDateString();
+		}
+		// Contain runaway decimal point values
+		if(typeof(value) === "number" &amp;&amp; value%1) {
+			value = value.toFixed(3);
+		}
+		return value;
+	};
+
+	/**
+	 * Using a Modal, show the status text for the row.
+	 * @method module:WidgetComponents.ActionTableController#viewStatusWarning
+	 * @param {Object} row 
+	 */
+	$scope.viewStatusWarning = function(row) {
+		spModal.confirm(row.$status_text);
+	};
+
+	/**
+	 * Performs basic token replacement in a string based on the values in the row object using "{{...}}" for replacement
+	 * indicators.
+	 * 
+	 * Due to service-now template processing, using "${...}" fails without oerly complicated syntax, for example
+	 * an option value of "My name is ${name}" simply displays as "My name is name" and looking at the option value
+	 * received to the widget, the value of that option will also be "My name is name" because Sevice-Now's templating
+	 * has already altered the value.
+	 * 
+	 * Additionally note that the replacement handling is managed with cached regular expressions generated at the start
+	 * of this controller.
+	 * @method module:WidgetComponents.ActionTableController#completeTemplate
+	 * @param {Object} row 
+	 * @param {String} template 
+	 * @returns {String} 
+	 */
+	$scope.completeTemplate = function(row, template) {
+		for(var i=0; i&lt;fieldList.length; i++) {
+			template = template.replace(fieldTracking[fieldList[i]], row[fieldList[i]] || "");
+		}
+		return template;
+	};
+
+	/**
+	 * Every field in the condition that is defined must match the corresponding field value in the row, or the
+	 * check fails.
+	 * @method module:WidgetComponents.ActionTableController#checkCondition
+	 * @param {Object} row 
+	 * @param {Object} condition
+	 * @returns {Boolean} 
+	 */
+	$scope.checkCondition = function(row, condition) {
+		for(var i=0; i&lt;fieldList.length; i++) {
+			if(condition[fieldList[i]] !== undefined &amp;&amp; condition[fieldList[i]] !== row[fieldList[i]]) {
+				return false;
+			}
+		}
+		return true;
+	};
+
+	/**
+	 * Get a new array of data from the server and apply it to the current state and render.
+	 * @method module:WidgetComponents.ActionTableController#reloadData
+	 */
+	$scope.reloadData = function() {
+		var success,
+			failure;
+
+		if($scope.options.data_source == "ajax") {
+			$scope.loadData();
+		} else {
+			success = function(response) {
+				$scope.data.rows.splice(0);
+				$scope.data.rows.push.apply($scope.data.rows, response.data.rows);
+				$scope.data.loaded = response.data.loaded;
+				$scope.loadData();
+				endReload();
+			};
+			failure = function(error) {
+				$scope.error = error;
+				endReload();
+			};
+
+			$scope.reload_icon = "fa-refresh fa-spin";
+			$scope.update();
+
+			$scope.server.get()
+			.then(success, failure);
+		}
+	};
+
+	/**
+	 * 
+	 * @method module:WidgetComponents.ActionTableController#getLastUpdateDisplay
+	 * @returns {String} 0
+	 */
+	$scope.getLastUpdateDisplay = function() {
+		var date = new Date($scope.data.loaded);
+		return date.toLocaleDateString() + " " + date.toLocaleTimeString();
+	};
+
+	/**
+	 * Forces a re-rendering of AngularJS bindings
+	 * @method module:WidgetComponents.ActionTableController#update
+	 */
+	$scope.update = function() {
+		try {
+			$scope.$digest();
+		} catch(updateException) {
+			// Generally just a digest exception from a current update cycle
+		}
+	};
+
+	// Initialize Corpus for rendering based on the loaded state
+	if(!isNaN($scope.options.refresh_interval) &amp;&amp; $scope.options.refresh_interval) {
+		setTimeout(refresh, $scope.options.refresh_interval);
+	}
+	$scope.loadData();
+	setIcons();
+};
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.control-section {&amp;#13;
+	width: 100%;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.section-error {&amp;#13;
+	padding: 5px 15px;&amp;#13;
+    font-size: 18px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.error-icon {&amp;#13;
+	color: $brand-danger;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-render {&amp;#13;
+}&amp;#13;
+&amp;#13;
+table {&amp;#13;
+	width: 100%;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-heading {&amp;#13;
+&amp;#13;
+}&amp;#13;
+&amp;#13;
+.filter-container {&amp;#13;
+	position: relative;&amp;#13;
+	background-color: white;&amp;#13;
+	z-index: 1;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.search-filter {&amp;#13;
+	width: 100%;&amp;#13;
+    border-width: 1px 0px;&amp;#13;
+	padding: 5px 60px 5px 45px;&amp;#13;
+	background-color: transparent;&amp;#13;
+	z-index: 5;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.filter-icon {&amp;#13;
+	position: absolute;&amp;#13;
+	left: 15px;&amp;#13;
+	top: 5px;&amp;#13;
+    height: 22px;&amp;#13;
+    width: 22px;&amp;#13;
+    font-size: 22px;&amp;#13;
+	z-index: 3;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.filter-count {&amp;#13;
+	position: absolute;&amp;#13;
+	right: 15px;&amp;#13;
+	top: 5px;&amp;#13;
+	line-height: 22px;&amp;#13;
+    height: 22px;&amp;#13;
+    font-size: 14px;&amp;#13;
+	z-index: 3;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-row {&amp;#13;
+	padding: 10px 15px;&amp;#13;
+	margin-bottom: -1px;&amp;#13;
+	background-color: #fff;&amp;#13;
+    border-width: 1px 0px;&amp;#13;
+	border-color: #ddd;&amp;#13;
+	border-style: solid;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-column {}&amp;#13;
+&amp;#13;
+.data-column-status,&amp;#13;
+.data-status {&amp;#13;
+	padding: 0px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-status .btn {&amp;#13;
+	margin: 0px 5px 0px 0px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-column-label {&amp;#13;
+	padding: 0px;&amp;#13;
+	margin: 0px;&amp;#13;
+	border: 0px;&amp;#13;
+	background: transparent;&amp;#13;
+}&amp;#13;
+&amp;#13;
+tr:hover {&amp;#13;
+	background-color: #eee;&amp;#13;
+}&amp;#13;
+&amp;#13;
+td, th {&amp;#13;
+	padding: 10px 5px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+td:first-child,&amp;#13;
+th:first-child {&amp;#13;
+	padding-left: 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+td:last-child,&amp;#13;
+th:last-child {&amp;#13;
+	padding-right: 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+tr:last-child {&amp;#13;
+    border-bottom-width: 0px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-point-actions {&amp;#13;
+	/* These serve to essentially right justify this column */&amp;#13;
+	white-space: nowrap;&amp;#13;
+	width: 1%;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-row-action {&amp;#13;
+	margin-right: 10px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.data-row-action:last-child {&amp;#13;
+	margin-right: 0px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.page-list {&amp;#13;
+    padding: 5px 15px;&amp;#13;
+    border-top: 1px solid #ddd;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.page-select {&amp;#13;
+	margin-right: 5px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.page-select:last-child {&amp;#13;
+	margin-right: 0px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.footer-container {&amp;#13;
+	display: flex;&amp;#13;
+	justify-content: space-between;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data&gt;{&amp;#13;
+	"data": {&amp;#13;
+		"rows": [{&amp;#13;
+				"name": "Test Name 0",&amp;#13;
+				"sys_id": "testname0",&amp;#13;
+				"short_description": "This is Test Name 0"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 1",&amp;#13;
+				"sys_id": "testname1",&amp;#13;
+				"short_description": "This is Test Name 1"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 2",&amp;#13;
+				"sys_id": "testname2",&amp;#13;
+				"short_description": "This is Test Name 2"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 3",&amp;#13;
+				"sys_id": "testname3",&amp;#13;
+				"short_description": "This is Test Name 3"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 4",&amp;#13;
+				"sys_id": "testname4",&amp;#13;
+				"short_description": "This is Test Name 4",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 5",&amp;#13;
+				"sys_id": "testname5",&amp;#13;
+				"short_description": "This is Test Name 5"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 6",&amp;#13;
+				"sys_id": "testname6",&amp;#13;
+				"short_description": "This is Test Name 6"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 7",&amp;#13;
+				"sys_id": "testname7",&amp;#13;
+				"short_description": "This is Test Name 7",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 8",&amp;#13;
+				"sys_id": "testname8",&amp;#13;
+				"short_description": "This is Test Name 8"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 9",&amp;#13;
+				"sys_id": "testname9",&amp;#13;
+				"short_description": "This is Test Name 9"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 10",&amp;#13;
+				"sys_id": "testname10",&amp;#13;
+				"short_description": "This is Test Name 10"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 11",&amp;#13;
+				"sys_id": "testname11",&amp;#13;
+				"short_description": "This is Test Name 11",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 12",&amp;#13;
+				"sys_id": "testname12",&amp;#13;
+				"short_description": "This is Test Name 12"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 13",&amp;#13;
+				"sys_id": "testname13",&amp;#13;
+				"short_description": "This is Test Name 13"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 14",&amp;#13;
+				"sys_id": "testname14",&amp;#13;
+				"short_description": "This is Test Name 14",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 15",&amp;#13;
+				"sys_id": "testname15",&amp;#13;
+				"short_description": "This is Test Name 15",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 16",&amp;#13;
+				"sys_id": "testname16",&amp;#13;
+				"short_description": "This is Test Name 16"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 17",&amp;#13;
+				"sys_id": "testname17",&amp;#13;
+				"short_description": "This is Test Name 17"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 18",&amp;#13;
+				"sys_id": "testname18",&amp;#13;
+				"short_description": "This is Test Name 18",&amp;#13;
+				"state": "inactive"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 19",&amp;#13;
+				"sys_id": "testname19",&amp;#13;
+				"short_description": "This is Test Name 19",&amp;#13;
+				"state": "inactive"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 20",&amp;#13;
+				"sys_id": "testname20",&amp;#13;
+				"short_description": "This is Test Name 20",&amp;#13;
+				"state": "inactive"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 21",&amp;#13;
+				"sys_id": "testname21",&amp;#13;
+				"short_description": "This is Test Name 21",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 22",&amp;#13;
+				"sys_id": "testname22",&amp;#13;
+				"short_description": "This is Test Name 22",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 23",&amp;#13;
+				"sys_id": "testname23",&amp;#13;
+				"short_description": "This is Test Name 23",&amp;#13;
+				"state": "active"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 24",&amp;#13;
+				"sys_id": "testname24",&amp;#13;
+				"short_description": "This is Test Name 24"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 25",&amp;#13;
+				"sys_id": "testname25",&amp;#13;
+				"short_description": "This is Test Name 25"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 26",&amp;#13;
+				"sys_id": "testname26",&amp;#13;
+				"short_description": "This is Test Name 26"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 27",&amp;#13;
+				"sys_id": "testname27",&amp;#13;
+				"short_description": "This is Test Name 27"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 28",&amp;#13;
+				"sys_id": "testname28",&amp;#13;
+				"short_description": "This is Test Name 28"&amp;#13;
+			},&amp;#13;
+			{&amp;#13;
+				"name": "Test Name 29",&amp;#13;
+				"sys_id": "testname29",&amp;#13;
+				"short_description": "This is Test Name 29"&amp;#13;
+			}&amp;#13;
+		]&amp;#13;
+	}&amp;#13;
+}&lt;/demo_data&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;action-table&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;ActionTable&lt;/name&gt;&lt;option_schema&gt;[{&amp;#13;
+	"hint": "Title to display in the heading",&amp;#13;
+	"name": "title",&amp;#13;
+	"section": "Presentation",&amp;#13;
+	"default_value": "Data",&amp;#13;
+	"label": "Title",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "Text to display when there is no data retrieved",&amp;#13;
+	"name": "empty_text",&amp;#13;
+	"section": "Presentation",&amp;#13;
+	"default_value": "No Records Found",&amp;#13;
+	"label": "No Data Received Message",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "Text to display when there is data but all rows are filtered out",&amp;#13;
+	"name": "filtered_out_text",&amp;#13;
+	"section": "Presentation",&amp;#13;
+	"default_value": "All records filtered out",&amp;#13;
+	"label": "Data Filtered Out Message",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "When on-zero, forces the table to always use this number of rows per page",&amp;#13;
+	"name": "per_page",&amp;#13;
+	"section": "Presentation",&amp;#13;
+	"label": "Force Rows Per Page",&amp;#13;
+	"type": "number"&amp;#13;
+}, {&amp;#13;
+	"hint": "ID for this table on the page. Used for unique identification in system wide storage such as saving the current state",&amp;#13;
+	"name": "id",&amp;#13;
+	"section": "Behavior",&amp;#13;
+	"label": "Table ID",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "When true, this widget is hidden from the page",&amp;#13;
+	"name": "deactivate",&amp;#13;
+	"section": "Behavior",&amp;#13;
+	"label": "Deactivate",&amp;#13;
+	"type": "boolean"&amp;#13;
+}, {&amp;#13;
+	"hint": "JSON Array describing the columns to render as objects; {label[String], field[String]}",&amp;#13;
+	"name": "columns",&amp;#13;
+	"section": "Behavior",&amp;#13;
+	"default_value": "[{\"label\":\"Name\",\"field\":\"name\"}, {\"label\":\"Short Description\", \"field\":\"short_description\"}]",&amp;#13;
+	"label": "Columns JSON",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "JSON Array describing the actions to render as objects; {label[String|Template], adjustments[Array|RegEx], action[String], perform[String|Template], condition[Object]}",&amp;#13;
+	"name": "actions",&amp;#13;
+	"section": "Behavior",&amp;#13;
+	"default_value": "[{\"label\":\"Activate {{name}}\",\"field\":\"name\", \"action\": \"link\", \"classes\":\"btn btn-success\", \"perform\": \"/incident.do?sys_id=-1&amp;amp;test={{sys_id}}\", \"condition\": {\"state\":\"inactive\"}}, {\"label\":\"Deactivate {{name}}\",\"field\":\"name\", \"action\": \"link\", \"classes\":\"btn btn-warning\", \"perform\": \"/incident.do?sys_id=-1&amp;amp;test={{sys_id}}\", \"condition\": {\"state\":\"active\"}}]",&amp;#13;
+	"label": "Actions JSON",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "Comma separated list of fields not considered in the columns specification that should also be considered filterable",&amp;#13;
+	"name": "filterable",&amp;#13;
+	"section": "Behavior",&amp;#13;
+	"default_value": "",&amp;#13;
+	"label": "Additional Filterable Fields",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "The number of milliseconds to wait after the last update to trigger a reload of the data. This process ignores manual data reloads and has a minimum value of 60000 (60 seconds).",&amp;#13;
+	"name": "refresh_interval",&amp;#13;
+	"section": "Behavior",&amp;#13;
+	"label": "Refresh Interval",&amp;#13;
+	"type": "number"&amp;#13;
+}, {&amp;#13;
+	"hint": "Controls how this widget retrieves the data it is displaying. Note that API endpoints outside of this Service-Now instance are not supported as the client retrieves the data, not the server, and thus retrieving data from any other domain would pose a security risk and fail most cross-site scripting protections.",&amp;#13;
+	"name": "data_source",&amp;#13;
+	"section": "Data",&amp;#13;
+	"label": "Data Source",&amp;#13;
+	"type": "choice",&amp;#13;
+	"choices": [{&amp;#13;
+		"label": "Table",&amp;#13;
+		"value": "table"&amp;#13;
+	}, {&amp;#13;
+		"label": "Service-Now API Endpoint",&amp;#13;
+		"value": "snapi"&amp;#13;
+	}, {&amp;#13;
+		"label": "Client Callable Script",&amp;#13;
+		"value": "ajax"&amp;#13;
+	}, {&amp;#13;
+		"label": "Server Script",&amp;#13;
+		"value": "server"&amp;#13;
+	}]&amp;#13;
+}, {&amp;#13;
+	"hint": "Name the of the Table to query. Only applies to the Table source configuration",&amp;#13;
+	"name": "table",&amp;#13;
+	"section": "Data",&amp;#13;
+	"default_value": "sys_user",&amp;#13;
+	"label": "Table",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "The path to the endpoint on this instance to invoke. Only applies to the Service-Now API Endpoint source configuration. Only absolute paths are accepted.",&amp;#13;
+	"name": "endpoint",&amp;#13;
+	"section": "Data",&amp;#13;
+	"default_value": "/api/ststable/example",&amp;#13;
+	"label": "Service-Now API Endpoint",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "Name the of the Script Include to invoke. Only applies to the Client Callable Script source configuration",&amp;#13;
+	"name": "script",&amp;#13;
+	"section": "Data",&amp;#13;
+	"default_value": "STSTableScriptAPI",&amp;#13;
+	"label": "Client Script to Call",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "Name the method to invoke on the script. Applies on either script type source configuration. In the case of 'Internal Script', the class is considered STSTableScriptAPI and the method must be statically defined.",&amp;#13;
+	"name": "script_method",&amp;#13;
+	"section": "Data",&amp;#13;
+	"default_value": "getExampleData",&amp;#13;
+	"label": "Script Method for Data",&amp;#13;
+	"type": "string"&amp;#13;
+}, {&amp;#13;
+	"hint": "If using a table source, this is the encoded query to apply; if using a scripted source, this is passed as the \"query\" argument to the method (for example: this.getParameter(\"query\") in a client callable script include)",&amp;#13;
+	"name": "query",&amp;#13;
+	"section": "Data",&amp;#13;
+	"label": "Data Query",&amp;#13;
+	"type": "string"&amp;#13;
+}]&lt;/option_schema&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[/**
+ * The Angular controller for managing the Action Table
+ * @class module:WidgetComponents.ActionTableServerScript
+ */
+(function() {
+	var buffer,
+		i;
+
+	/**
+	 * Object created by Service-Now and passed to the Widget controller on initialization.
+	 * @property data
+	 * @type Object
+	 */
+
+	/**
+	 * Track when the data was retrieved
+	 * @property data.loaded
+	 * @type Number
+	 */
+	data.loaded = Date.now();
+
+	// Level Set Options
+	if(options.refresh_interval) {
+		options.refresh_interval = parseInt(options.refresh_interval);
+		if(isNaN(options.refresh_interval) || options.refresh_interval &lt; 60000) {
+			options.refresh_interval = 60000;
+		}
+	}
+
+	if(options.filterable) {
+		options.filterable = options.filterable.split(",");
+		for(i=0; i&lt;options.filterable.length; i++) {
+			options.filterable[i] = options.filterable[i].trim();
+		}
+	} else {
+		options.filterable = [];
+	}
+
+	if(options.per_page) {
+		options.per_page = parseInt(options.per_page);
+	}
+
+	// Retrieve rows based on options
+	try {
+		switch(options.data_source) {
+			/**
+			 * Contains the row data for the table
+			 * @property data.rows
+			 * @type Array
+			 */
+			case "table":
+				data.rows = STSTableScriptAPI.getTableData(options.table, options.query);
+				break;
+			case "server":
+				if(typeof(STSTableScriptAPI[options.script_method]) == "function") {
+					data.rows = STSTableScriptAPI[options.script_method](options.query);
+				} else {
+					buffer = "Action Table: Script Method \"" + options.script_method + "\" does not exist for Script STSTableScriptAPI";
+					gs.error(buffer);
+					throw new Error(buffer);
+				}
+				break;
+			case "snapi":
+			case "ajax":
+				// Handled Client Side
+				data.rows = [];
+				break;
+			default:
+				gs.error("Action Table: Unknown Data Source: " + options.data_source);
+		}
+	} catch(sourceException) {
+		/**
+		 * Message from an error while building the data for the table
+		 * @property data.error
+		 * @type String
+		 */
+		data.error = sourceException.message || "Generic Error occurred";
+		gs.error(sourceException);
+	}
+})();
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-12-03 01:35:39&lt;/sys_created_on&gt;&lt;sys_id&gt;ab73437f07c00110e1ecf1d08c1ed0a9&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;ActionTable&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_ab73437f07c00110e1ecf1d08c1ed0a9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-12-03 01:44:30&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="action-table panel panel-default" ng-if="!options.deactivate"&gt;
+	&lt;div class="panel-heading"&gt;
+		&lt;h2 class="panel-title"&gt;{{options.title}}&lt;/h2&gt;
+	&lt;/div&gt;
+	&lt;div class="control-section section-error" ng-if="error"&gt;
+		&lt;span class="error-icon fa fa-exclamation-triangle"&gt;&lt;/span&gt;
+		&lt;span&gt;{{error.message}}&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="control-section control-data"&gt;
+		&lt;div class="filter-container"&gt;
+			&lt;div class="filter-icon fa {{filterIcon}}"&gt;&lt;/div&gt;
+			&lt;div class="filter-count"&gt;
+				&lt;span class="filter-count-display"&gt;{{corpus.length}}/{{data.rows.length}}&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;input type="text" class="search-filter" placeholder="Filter List..." ng-model="state.search" /&gt;
+		&lt;/div&gt;
+		&lt;table class="data-render"&gt;
+			&lt;thead&gt;
+				&lt;tr class="data-row data-headings"&gt;
+					&lt;th class="data-column-status"&gt;
+					&lt;/th&gt;
+					&lt;th class="data-column" ng-repeat="column in columns"&gt;
+						&lt;button class="data-column-label" ng-click="reorder(column)"&gt;
+							&lt;span class="{{column.sort_icon}}"&gt;&lt;/span&gt;
+							&lt;span&gt;{{column.label}}&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/th&gt;
+					&lt;th class="action-column"&gt;
+					&lt;/th&gt;
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+			&lt;tbody&gt;
+				&lt;tr class="data-row" ng-if="render.length === 0"&gt;
+					&lt;td colspan="{{columns.length + actions.length}}"&gt;
+						&lt;div class="no-data"&gt;
+							&lt;span class="fa fa-exclamation-triangle"&gt;&lt;/span&gt;
+							&lt;span&gt;{{data.rows.length?options.filtered_out_text:options.empty_text}}&lt;/span&gt;
+						&lt;/div&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr class="data-row" ng-repeat="row in render"&gt;
+					&lt;td class="data-status"&gt;
+						&lt;button ng-if="row.$status_text" class="{{row.$status_class}}" ng-click="viewStatusWarning(row)" title="{{row.$status_text}}"&gt;
+							&lt;span class="{{row.$status_icon}}"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/td&gt;
+					&lt;td class="data-point" ng-repeat="column in columns"&gt;
+						&lt;span class="data-value"&gt;{{renderValue(row, column)}}&lt;/span&gt;
+					&lt;/td&gt;
+					&lt;td class="data-point-actions"&gt;
+						&lt;button class="data-row-action {{action.classes}}" ng-repeat="action in actions" ng-if="actionVisible(row, action)" ng-click="processAction(row, action)"&gt;
+							&lt;span ng-if="action.icon" class="{{action.icon}}"&gt;&lt;/span&gt;
+							&lt;span&gt;{{completeTemplate(row, action.label)}}&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tbody&gt;
+		&lt;/table&gt;
+	&lt;/div&gt;
+	&lt;div class="control-section control-page" ng-if="pages.length &gt; 1"&gt;
+		&lt;div class="page-list"&gt;
+			&lt;button class="page-select btn {{getPageClasses(page)}}" ng-repeat="page in pages" ng-click="toPage(page)"&gt;
+				&lt;span class="page-number"&gt;{{page}}&lt;/span&gt;
+			&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="panel-footer"&gt;
+		&lt;div class="footer-container"&gt;
+			&lt;div class="footer-note-updated"&gt;
+				&lt;button class="control-reload" ng-click="reloadData()"&gt;
+					&lt;span class="fa {{reload_icon}}"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;span class="status"&gt;Last Update: {{getLastUpdateDisplay()}}&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class="footer-note-perpage" ng-if="!options.per_page"&gt;
+				&lt;span class="text"&gt;Rows per Page:&lt;/span&gt;
+				&lt;select class="selection" ng-model="state.per_page"&gt;
+					&lt;option value="5"&gt;5&lt;/option&gt;
+					&lt;option value="10"&gt;10&lt;/option&gt;
+					&lt;option value="15"&gt;15&lt;/option&gt;
+					&lt;option value="20"&gt;20&lt;/option&gt;
+					&lt;option value="25"&gt;25&lt;/option&gt;
+					&lt;option value="30"&gt;30&lt;/option&gt;
+				&lt;/select&gt;
+			&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1839516745</payload_hash>
+<remote_update_set display_value="Action Table Widget">48c2eff307040110e1ecf1d08c1ed06e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2021-12-03 03:50:58</sys_created_on>
+<sys_id>c4c2eff307040110e1ecf1d08c1ed06f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d7df6dde70000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2021-12-03 03:50:58</sys_updated_on>
+<table/>
+<target_name>ActionTable</target_name>
+<type>Widget</type>
+<update_domain>global</update_domain>
+<update_guid>afc503ff08c00110cec14311d8bf126d</update_guid>
+<update_guid_history>afc503ff08c00110cec14311d8bf126d:1839516745,b2440f7fc9c0011086d337c28095d94d:428374319,31c3477f95c0011052b8342fa94fbc41:66327855</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

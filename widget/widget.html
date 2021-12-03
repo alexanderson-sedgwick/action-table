@@ -1,0 +1,87 @@
+<div class="action-table panel panel-default" ng-if="!options.deactivate">
+	<div class="panel-heading">
+		<h2 class="panel-title">{{options.title}}</h2>
+	</div>
+	<div class="control-section section-error" ng-if="error">
+		<span class="error-icon fa fa-exclamation-triangle"></span>
+		<span>{{error.message}}</span>
+	</div>
+	<div class="control-section control-data">
+		<div class="filter-container">
+			<div class="filter-icon fa {{filterIcon}}"></div>
+			<div class="filter-count">
+				<span class="filter-count-display">{{corpus.length}}/{{data.rows.length}}</span>
+			</div>
+			<input type="text" class="search-filter" placeholder="Filter List..." ng-model="state.search" />
+		</div>
+		<table class="data-render">
+			<thead>
+				<tr class="data-row data-headings">
+					<th class="data-column-status">
+					</th>
+					<th class="data-column" ng-repeat="column in columns">
+						<button class="data-column-label" ng-click="reorder(column)">
+							<span class="{{column.sort_icon}}"></span>
+							<span>{{column.label}}</span>
+						</button>
+					</th>
+					<th class="action-column">
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="data-row" ng-if="render.length === 0">
+					<td colspan="{{columns.length + actions.length}}">
+						<div class="no-data">
+							<span class="fa fa-exclamation-triangle"></span>
+							<span>{{data.rows.length?options.filtered_out_text:options.empty_text}}</span>
+						</div>
+					</td>
+				</tr>
+				<tr class="data-row" ng-repeat="row in render">
+					<td class="data-status">
+						<button ng-if="row.$status_text" class="{{row.$status_class}}" ng-click="viewStatusWarning(row)" title="{{row.$status_text}}">
+							<span class="{{row.$status_icon}}"></span>
+						</button>
+					</td>
+					<td class="data-point" ng-repeat="column in columns">
+						<span class="data-value">{{renderValue(row, column)}}</span>
+					</td>
+					<td class="data-point-actions">
+						<button class="data-row-action {{action.classes}}" ng-repeat="action in actions" ng-if="actionVisible(row, action)" ng-click="processAction(row, action)" title="{{completeTemplate(row,action.title)}}">
+							<span ng-if="action.icon" class="{{action.icon}}"></span>
+							<span>{{completeTemplate(row, action.label)}}</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="control-section control-page" ng-if="pages.length > 1">
+		<div class="page-list">
+			<button class="page-select btn {{getPageClasses(page)}}" ng-repeat="page in pages" ng-click="toPage(page)">
+				<span class="page-number">{{page}}</span>
+			</button>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="footer-container">
+			<div class="footer-note-updated">
+				<button class="control-reload" ng-click="reloadData()">
+					<span class="fa {{reload_icon}}"></span>
+				</button>
+				<span class="status">Last Update: {{getLastUpdateDisplay()}}</span>
+			</div>
+			<div class="footer-note-perpage" ng-if="!options.per_page">
+				<span class="text">Rows per Page:</span>
+				<select class="selection" ng-model="state.per_page">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+				</select>
+			</div>
+	</div>
+</div>
