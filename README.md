@@ -109,7 +109,7 @@ The `action` field describes what kind of action is taken when the button is pre
 	"title": "Activate {{name}}",
 	"classes": "btn btn-success",
 	"action": "ajax",
-	"ajax_method": "ClientCallableScript",
+	"ajax_class": "ClientCallableScript",
 	"ajax_method": "ScriptFunction",
 	"some_data_for_the_function": "{{sys_id}}",
 	"quick_note": {
