@@ -101,7 +101,7 @@ config = {
 				// "template" : "./supplementary/documentation/template",
 				"template" : "node_modules/ink-docstrap/template",
 				"configure" : "node_modules/ink-docstrap/template/jsdoc.conf.json",
-                "destination": "documentation"
+                "destination": "docs"
             }
         }
 	},
