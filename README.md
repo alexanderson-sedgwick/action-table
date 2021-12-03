@@ -2,6 +2,10 @@
 
 A configurable table widget designed to pull data from scripts or tables and provide an instance option way to configure conditional buttons for each row.
 
+GitHub Repository: [https://github.com/alexanderson-sedgwick/action-table](https://github.com/alexanderson-sedgwick/action-table)
+
+Documentation: [https://alexanderson-sedgwick.github.io/action-table/](https://alexanderson-sedgwick.github.io/action-table/)
+
 # Quick Setup
 
 The easiest way to setup data for the table while keeping your update set contained is with a client callable script include.
