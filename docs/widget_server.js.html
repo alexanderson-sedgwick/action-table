@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Source: widget/server.js</title>
+	<title>ActionTable Source: widget/server.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<a class="navbar-brand" href="index.html">ActionTable</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -33,14 +33,14 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
+					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-Specifications.html">Specifications</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li>
+					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li><li><a href="Specifications.Action.html">Specifications.Action</a></li><li><a href="Specifications.Column.html">Specifications.Column</a></li><li><a href="Specifications.State.html">Specifications.State</a></li>
 				</ul>
 			</li>
 			
@@ -77,25 +77,38 @@
 <section>
     <article>
         <pre
-            class="sunlight-highlight-javascript linenums">/**
+            class="sunlight-highlight-javascript linenums">/** @module WidgetComponents */
+/**
  * The Angular controller for managing the Action Table
  * @class module:WidgetComponents.ActionTableServerScript
+ */
+
+/**
+ * Object created by Service-Now and passed to the Widget controller on initialization.
+ * @memberof module:WidgetComponents.ActionTableServerScript
+ * @typedef {Object} data
+ * @property {Number} loaded Timestamp for when the data was retrieved
+ * @property {Array} rows Contains the row data for the table
+ * @property {String} error Message from an error while building the data for the table
+ */
+
+/**
+ * Object created by Service-Now and passed to the Widget controller on initialization.
+ * @memberof module:WidgetComponents.ActionTableServerScript
+ * @typedef {Object} options
+ * @property {String} filterable Comma seperated list of fields that should be added
+ * 		to the $search property of objects for easy filtering.
+ * @property {Number} per_page Forces the table to show a set number of rows per page
+ * 		of data and hides the per_page selector on the table.
+ * @property {Number} refresh_interval Milliseconds to wait between pulling data
+ * 		from the server again.
+ * @property {String} data_source Indicating where/how to retrieve data.
  */
 (function() {
 	var buffer,
 		i;
 
-	/**
-	 * Object created by Service-Now and passed to the Widget controller on initialization.
-	 * @property data
-	 * @type Object
-	 */
 
-	/**
-	 * Track when the data was retrieved
-	 * @property data.loaded
-	 * @type Number
-	 */
 	data.loaded = Date.now();
 
 	// Level Set Options
@@ -122,11 +135,6 @@
 	// Retrieve rows based on options
 	try {
 		switch(options.data_source) {
-			/**
-			 * Contains the row data for the table
-			 * @property data.rows
-			 * @type Array
-			 */
 			case "table":
 				data.rows = STSTableScriptAPI.getTableData(options.table, options.query);
 				break;
@@ -148,11 +156,6 @@
 				gs.error("Action Table: Unknown Data Source: " + options.data_source);
 		}
 	} catch(sourceException) {
-		/**
-		 * Message from an error while building the data for the table
-		 * @property data.error
-		 * @type String
-		 */
 		data.error = sourceException.message || "Generic Error occurred";
 		gs.error(sourceException);
 	}
@@ -196,13 +199,13 @@
 
 
 	<span class="copyright">
-	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	Sedgwick Technology Solutions Copyright ©2021
 	</span>
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
 	
-		on Thu Dec 2nd 2021
+		on Fri Dec 3rd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

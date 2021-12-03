@@ -95,12 +95,14 @@ config = {
 				"./widget/"
 			],
             "options": {
-            	"plugins": ["plugins/markdown"],
+            	// "plugins": ["plugins/markdown"],
             	"readme": "./readme.md",
 				"private": true,
 				// "template" : "./supplementary/documentation/template",
 				"template" : "node_modules/ink-docstrap/template",
-				"configure" : "node_modules/ink-docstrap/template/jsdoc.conf.json",
+				// "configure" : "node_modules/ink-docstrap/template/jsdoc.conf.json",
+				"configure" : "./supplementary/documentation/configurations/jsdoc.conf",
+				// "template" : "node_modules/jsdoc-baseline/",
                 "destination": "docs"
             }
         }

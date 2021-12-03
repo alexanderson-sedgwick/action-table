@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>ActionTable Module: AngularProviders</title>
+	<title>ActionTable Source: widget/column.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,105 +67,41 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: AngularProviders</h1>
+		<h1 class="page-title">Source: widget/column.js</h1>
+    
 <section>
-
-<header>
-    
-</header>
-
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="providers_spglideajax.js.html">providers/spglideajax.js</a>,
-				 <a href="providers_spglideajax.js.html#sunlight-1-line-2">line 2</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-AngularProviders.SPGlideAjax.html">SPGlideAjax</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * Describes a field from a row data object to render on the table.
+ * 
+ * This exists only for documentation purposes and is not actually
+ * defined in the instance.
+ * @memberof Specifications
+ */
+class Column {
+	constructor() {
+		/**
+		 * Displayed essentially as the header for this column on
+		 * the table.
+		 * @type {String}
+		 */
+		this.label;
+		/**
+		 * To pull the data from on the row data object.
+		 * @type {String}
+		 */
+		this.field;
+	}
+}</pre>
+    </article>
 </section>
+
 
 
 
@@ -175,10 +111,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

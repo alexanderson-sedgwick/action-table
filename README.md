@@ -68,7 +68,6 @@ Each object has a few key values specific to rendering the button:
 + `icon` With classes specifically for rendering an icon. This will generally follow font-awesome 4.7 or another glyph set included on your portal
 + `label` For the displayed text
 + `title` Used for hover text (HTML title property) on the button
-+ `icon` Containing a string of CSS classes to set on the button
 + `condition` Optional object describing values that have to match for the action to display
 + `action` Indicating how interactions with this action should process.
 
@@ -99,15 +98,15 @@ The `action` field describes what kind of action is taken when the button is pre
 	"view": "default"
 }
 ```
-+ `ajax-call` makes an AJAX call similar to a GlideAjax call. This action also fills out the key values for all keys on the object and then passes each key as a parameter in the AJAX call. The `tbl_class` is used to initialize the SPGlideAjax instance and `tbl_method` is specifically added as the `"sysparm_name"` parameter of the AJAX call. Both keys can also be specified specifically as a key:value pair on the row's data that can be completed for a more dynamic AJAX call. Additionally, a `tbl_complete` key is used for a switch case that can be eithe r`redirect` or `newwindow` and will use the `new_url` key to open or redirect once a response is received. However, as a note, deeply nested data will NOT get replacements. Example:
++ `ajax-call` makes an AJAX call similar to a GlideAjax call. This action also fills out the key values for all keys on the object and then passes each key as a parameter in the AJAX call. The `ajax_class` is used to initialize the SPGlideAjax instance and `ajax_method` is specifically added as the `"sysparm_name"` parameter of the AJAX call. Both keys can also be specified specifically as a key:value pair on the row's data that can be completed for a more dynamic AJAX call. Additionally, a `ajax_complete` key is used for a switch case that can be either `redirect` or `newwindow` and will use the `new_url` key to open or redirect once a response is received. However, as a note, deeply nested data will NOT get replacements. Example:
 ```
 {
 	"label": "Call AJAX",
 	"title": "Activate {{name}}",
 	"classes": "btn btn-success",
 	"action": "ajax",
-	"tbl_method": "ClientCallableScript",
-	"tbl_method": "ScriptFunction",
+	"ajax_method": "ClientCallableScript",
+	"ajax_method": "ScriptFunction",
 	"some_data_for_the_function": "{{sys_id}}",
 	"quick_note": {
 		"this_will_NOT_be_replaced": "{{name}}"

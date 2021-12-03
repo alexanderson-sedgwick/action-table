@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>ActionTable Class: ActionTableServerScript</title>
+	<title>ActionTable Class: State</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,14 +33,14 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-Specifications.html">Specifications</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
+					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li><li><a href="Specifications.Action.html">Specifications.Action</a></li><li><a href="Specifications.Column.html">Specifications.Column</a></li><li><a href="Specifications.State.html">Specifications.State</a></li>
+					<li><a href="Action.html">Action</a></li><li><a href="Column.html">Column</a></li><li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li><li><a href="State.html">State</a></li>
 				</ul>
 			</li>
 			
@@ -72,16 +72,18 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: ActionTableServerScript</h1>
+	<h1 class="page-title">Class: State</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-WidgetComponents.html">WidgetComponents</a>.</span>
-        
-        ActionTableServerScript
+        State
         </h2>
+        
+            <div class="class-description"><p>Important stateful data for the Widget.</p>
+<p>This exists only for documentation purposes and is not actually
+defined in the instance.</p></div>
         
     
 </header>
@@ -93,16 +95,12 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="ActionTableServerScript"><span class="type-signature"></span>new ActionTableServerScript()</h4>
+    <h4 class="name" id="State"><span class="type-signature"></span>new State()</h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>The Angular controller for managing the Action Table</p>
-    </div>
     
 
     
@@ -147,8 +145,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="widget_server.js.html">widget/server.js</a>,
-				 <a href="widget_server.js.html#sunlight-1-line-2">line 2</a>
+				<a href="widget_state.js.html">widget/state.js</a>,
+				 <a href="widget_state.js.html#sunlight-1-line-7">line 7</a>
 			</li>
 		</ul>
 	</dd>
@@ -191,24 +189,21 @@
     
 
     
-
-    
-
-    
-        <h3 class="subsection-title">Type Definitions</h3>
+        <h3 class="subsection-title">Members</h3>
 
         <dl>
-                
+            
 <hr>
-<dt class="name" id=".data">
-    <h4 id=".data">data</h4>
+<dt class="name" id="above">
+    <h4 id="above"><span class="type-signature"></span>above<span class="type-signature"> :Number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Object created by Service-Now and passed to the Widget controller on initialization.</p>
+        <p>Controls the sort ordering and is returned
+when <code>a</code> is considered to precede <code>b</code>.</p>
     </div>
     
 
@@ -217,7 +212,7 @@
         <ul>
             <li>
                 
-<span class="param-type">Object</span>
+<span class="param-type">Number</span>
 
 
 
@@ -227,107 +222,6 @@
 
     
 <dl class="details">
-    
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    <dl>
-
-<table class="props table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>loaded</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Timestamp for when the data was retrieved</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>rows</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Contains the row data for the table</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>error</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Message from an error while building the data for the table</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</dl>
-
     
 
 	
@@ -361,8 +255,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="widget_server.js.html">widget/server.js</a>,
-				 <a href="widget_server.js.html#sunlight-1-line-7">line 7</a>
+				<a href="widget_state.js.html">widget/state.js</a>,
+				 <a href="widget_state.js.html#sunlight-1-line-44">line 44</a>
 			</li>
 		</ul>
 	</dd>
@@ -379,18 +273,19 @@
     
 </dd>
 
+        
             
-                
 <hr>
-<dt class="name" id=".options">
-    <h4 id=".options">options</h4>
+<dt class="name" id="below">
+    <h4 id="below"><span class="type-signature"></span>below<span class="type-signature"> :Number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Object created by Service-Now and passed to the Widget controller on initialization.</p>
+        <p>Controls the sort ordering and is returned
+when <code>a</code> is considered to procede <code>b</code>.</p>
     </div>
     
 
@@ -399,7 +294,7 @@
         <ul>
             <li>
                 
-<span class="param-type">Object</span>
+<span class="param-type">Number</span>
 
 
 
@@ -409,134 +304,6 @@
 
     
 <dl class="details">
-    
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    <dl>
-
-<table class="props table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>filterable</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Comma seperated list of fields that should be added
-to the $search property of objects for easy filtering.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>per_page</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Forces the table to show a set number of rows per page
-of data and hides the per_page selector on the table.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>refresh_interval</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Milliseconds to wait between pulling data
-from the server again.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data_source</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Indicating where/how to retrieve data.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</dl>
-
     
 
 	
@@ -570,8 +337,8 @@ from the server again.</p></td>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="widget_server.js.html">widget/server.js</a>,
-				 <a href="widget_server.js.html#sunlight-1-line-16">line 16</a>
+				<a href="widget_state.js.html">widget/state.js</a>,
+				 <a href="widget_state.js.html#sunlight-1-line-50">line 50</a>
 			</li>
 		</ul>
 	</dd>
@@ -588,7 +355,343 @@ from the server again.</p></td>
     
 </dd>
 
-            </dl>
+        
+            
+<hr>
+<dt class="name" id="order">
+    <h4 id="order"><span class="type-signature"></span>order<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Names the column by which to sort rows
+using the field value of the column.</p>
+<p>If the field does not exist, no ordering is explicitly performed</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_state.js.html">widget/state.js</a>,
+				 <a href="widget_state.js.html#sunlight-1-line-38">line 38</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="page">
+    <h4 id="page"><span class="type-signature"></span>page<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The current page of the table being rendered.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_state.js.html">widget/state.js</a>,
+				 <a href="widget_state.js.html#sunlight-1-line-19">line 19</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="search">
+    <h4 id="search"><span class="type-signature"></span>search<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Used for filtering a row based on
+the values within it.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_state.js.html">widget/state.js</a>,
+				 <a href="widget_state.js.html#sunlight-1-line-14">line 14</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="size">
+    <h4 id="size"><span class="type-signature"></span>size<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The number of rows to display per page.
+of the <code>state.size</code> value is copied here used for user control of the
+paging size. This is later in a $watch statement to handle keeping
+size straight when changed this way.</p>
+<p>Direct modifications to <code>state.size</code> after the widget has been created
+will NOT currently be reflected back to this value.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_state.js.html">widget/state.js</a>,
+				 <a href="widget_state.js.html#sunlight-1-line-30">line 30</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
     
 
     

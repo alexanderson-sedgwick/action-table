@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Index</title>
+	<title>ActionTable Index</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<a class="navbar-brand" href="index.html">ActionTable</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -33,14 +33,14 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
+					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-Specifications.html">Specifications</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li>
+					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li><li><a href="Specifications.Action.html">Specifications.Action</a></li><li><a href="Specifications.Column.html">Specifications.Column</a></li><li><a href="Specifications.State.html">Specifications.State</a></li>
 				</ul>
 			</li>
 			
@@ -160,7 +160,6 @@
 <li><code>icon</code> With classes specifically for rendering an icon. This will generally follow font-awesome 4.7 or another glyph set included on your portal</li>
 <li><code>label</code> For the displayed text</li>
 <li><code>title</code> Used for hover text (HTML title property) on the button</li>
-<li><code>icon</code> Containing a string of CSS classes to set on the button</li>
 <li><code>condition</code> Optional object describing values that have to match for the action to display</li>
 <li><code>action</code> Indicating how interactions with this action should process.</li>
 </ul>
@@ -194,15 +193,15 @@
 }
 </code></pre>
 <ul>
-<li><code>ajax-call</code> makes an AJAX call similar to a GlideAjax call. This action also fills out the key values for all keys on the object and then passes each key as a parameter in the AJAX call. The <code>tbl_class</code> is used to initialize the SPGlideAjax instance and <code>tbl_method</code> is specifically added as the <code>&quot;sysparm_name&quot;</code> parameter of the AJAX call. Both keys can also be specified specifically as a key:value pair on the row's data that can be completed for a more dynamic AJAX call. Additionally, a <code>tbl_complete</code> key is used for a switch case that can be eithe r<code>redirect</code> or <code>newwindow</code> and will use the <code>new_url</code> key to open or redirect once a response is received. However, as a note, deeply nested data will NOT get replacements. Example:</li>
+<li><code>ajax-call</code> makes an AJAX call similar to a GlideAjax call. This action also fills out the key values for all keys on the object and then passes each key as a parameter in the AJAX call. The <code>ajax_class</code> is used to initialize the SPGlideAjax instance and <code>ajax_method</code> is specifically added as the <code>&quot;sysparm_name&quot;</code> parameter of the AJAX call. Both keys can also be specified specifically as a key:value pair on the row's data that can be completed for a more dynamic AJAX call. Additionally, a <code>ajax_complete</code> key is used for a switch case that can be either <code>redirect</code> or <code>newwindow</code> and will use the <code>new_url</code> key to open or redirect once a response is received. However, as a note, deeply nested data will NOT get replacements. Example:</li>
 </ul>
 <pre class="prettyprint source"><code>{
 	&quot;label&quot;: &quot;Call AJAX&quot;,
 	&quot;title&quot;: &quot;Activate {{name}}&quot;,
 	&quot;classes&quot;: &quot;btn btn-success&quot;,
 	&quot;action&quot;: &quot;ajax&quot;,
-	&quot;tbl_method&quot;: &quot;ClientCallableScript&quot;,
-	&quot;tbl_method&quot;: &quot;ScriptFunction&quot;,
+	&quot;ajax_method&quot;: &quot;ClientCallableScript&quot;,
+	&quot;ajax_method&quot;: &quot;ScriptFunction&quot;,
 	&quot;some_data_for_the_function&quot;: &quot;{{sys_id}}&quot;,
 	&quot;quick_note&quot;: {
 		&quot;this_will_NOT_be_replaced&quot;: &quot;{{name}}&quot;
@@ -252,13 +251,13 @@
 
 
 	<span class="copyright">
-	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	Sedgwick Technology Solutions Copyright ©2021
 	</span>
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
 	
-		on Thu Dec 2nd 2021
+		on Fri Dec 3rd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

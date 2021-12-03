@@ -27,14 +27,15 @@
   "homepage": "https://github.com/alexanderson-sedgwick/action-table#readme",
   "devDependencies": {
     "grunt": "^1.4.1",
-    "load-grunt-tasks": "^5.1.0",
-    "grunt-contrib-yuidoc": "^1.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "gruntify-eslint": "^5.0.0",
+    "grunt-contrib-yuidoc": "^1.0.0",
     "grunt-jsdoc": "^2.4.1",
-    "yuidocjs": "^0.10.2",
-    "jsdoc": "^3.6.7"
+    "gruntify-eslint": "^5.0.0",
+    "ink-docstrap": "^1.3.2",
+    "jsdoc": "^3.6.7",
+    "jsdoc-baseline": "^0.1.5",
+    "load-grunt-tasks": "^5.1.0",
+    "yuidocjs": "^0.10.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

@@ -1,25 +1,27 @@
+/**
+ * The Angular controller for managing the Action Table
+ * @class module:WidgetComponents.ActionTableController
+ */
 api.controller = function($scope, $http, spModal, SPGlideAjax) {
-	/** @module WidgetComponents */
-	/**
-	 * The Angular controller for managing the Action Table
-	 * @class module:WidgetComponents.ActionTableController
-	 */
+
 	/**
 	 * Identitifies the localStorage key used for saving and recovering the current state
 	 * of the table's rendering.
-	 * @property stateKey
-	 * @type String
-	 * @private
-	 */
-	/**
-	 * Time to wait to allow typing to continue before updating the corpus.
-	 * @property filterInterval
-	 * @default 200
-	 * @type Number
+	 * @memberof ActionTableController
+	 * @type {String}
+	 * @alias stateKey
 	 * @private
 	 */
 	var stateKey = "actiontable:state:" + $scope.options.id,
 		loading = localStorage.getItem(stateKey),
+	/**
+	 * Time to wait to allow typing to continue before updating the corpus.
+	 * @property {Number} filterInterval
+	 * @memberof ActionTableController
+	 * @default 200
+	 * 
+	 * @private
+	 */
 		filterInterval = 200,
 		fieldTracking = {},
 		fieldList = [],
@@ -140,7 +142,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 	 */
 	endReload = function() {
 		setTimeout(function() {
-			$scope.reload_icon = "fa-refresh";
+			$scope.reloadIcon = "fa-refresh";
 			$scope.update();
 		}, 1000);
 	};
@@ -238,59 +240,71 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 		$scope.error = parseException;
 	}
 
-	/**
-	 * Handles displaying an error to the widget.
-	 * 
-	 * Generally set by calling the private function `fault`.
-	 * @property error
-	 * @type Error
-	 */
 	if($scope.data.error) {
+		/**
+		 * Handles displaying an error to the widget.
+		 * 
+		 * Generally set by calling the private function `fault`.
+		 * @memberof module:WidgetComponents.ActionTableController
+		 * @type {Object}
+		 * @alias error
+		 * 
+		 */
 		$scope.error = new Error($scope.data.error);
 	}
 	/**
 	 * 
 	 * The displayed icon in the filter to give feedback to the user.
-	 * @property filterIcon
-	 * @type String
+	 * @memberof module:WidgetComponents.ActionTableController
+	 * @type {String}
+	 * @alias filterIcon
 	 */
 	$scope.filterIcon = "fa-filter";
 	/**
 	 * The displayed icon for reloading data to give feedback to the user.
-	 * @property filterIcon
-	 * @type String
+	 * @memberof module:WidgetComponents.ActionTableController
+	 * @type {String}
+	 * @alias reloadIcon
 	 */
-	$scope.reload_icon = "fa-refresh";
+	$scope.reloadIcon = "fa-refresh";
 	/**
 	 * Each element contained here is an element that is valid after the rows have been
 	 * filtered by search and sort criteria.
-	 * @property corpus
-	 * @type Array
+	 * @memberof module:WidgetComponents.ActionTableController
+	 * @type {Array}
+	 * @alias corpus
 	 */
 	$scope.corpus = [];
 	/**
 	 * Each element contained here is a row to render on the page. This is pared down to
 	 * only the rows that should render based on the current page and sourced from the
 	 * corpus array to follow search and sort criteria and drive a faster rendering.
-	 * @property render
-	 * @type Array
+	 * @memberof module:WidgetComponents.ActionTableController
+	 * @type {Array}
+	 * @alias render
+	 * 
 	 */
 	$scope.render = [];
 	/**
 	 * Doubles as a page count and rendering array for ng-repeat.
-	 * @property pages
-	 * @type Array
+	 * @memberof module:WidgetComponents.ActionTableController
+	 * @type {Array}
+	 * @alias pages
 	 */
 	$scope.pages = [];
 
 	// Attempt to recover the previous state of the table, if any
-	/**
-	 * 
-	 * @property state
-	 * @type Object
-	 */
 	if(loading) {
 		try {
+			/**
+			 * Holds the stateful data for the widget that should be tracked and
+			 * reloaded on refresh. This is specifically accomplished by calls
+			 * to `saveState` in combination with a `$watch` specification.
+			 * @memberof module:WidgetComponents.ActionTableController
+			 * @type {State}
+			 * @link State
+			 * @alias state
+			 */
 			$scope.state = JSON.parse(loading);
 		} catch(loadException) {
 			console.error("ActionTable: State Loading Error: ", loadException);
@@ -299,66 +313,21 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 	} else {
 		$scope.state = {};
 	}
-	/**
-	 * 
-	 * @property state.page
-	 * @type Number
-	 */
 	if($scope.state.page === undefined) {
 		$scope.state.page = 0;
 	}
-	/**
-	 * Used for filtering a row based on the values within it.
-	 * @property state.search
-	 * @type String
-	 */
 	if($scope.state.search === undefined) {
 		$scope.state.search = "";
 	}
-	/**
-	 * The number of rows to display per page.
-	 * @property state.size
-	 * @type Number
-	 */
 	if(!isNaN($scope.options.per_page) && $scope.options.per_page > 0) {
 		$scope.state.size = $scope.options.per_page;
 	} else if(isNaN($scope.state.size)) {
 		$scope.state.size = 20;
 	}
-	/**
-	 * As "select" elements match on strings, a string version of the `state.size`
-	 * value is copied here used for user control of the paging size. This is later
-	 * in a $watch statement to handle keeping size straight when changed this way.
-	 * 
-	 * Direct modifications to `state.size` after the widget has been created will
-	 * NOT currently be reflected back to this value.
-	 * @property state.per_page
-	 * @type String
-	 */
 	$scope.state.per_page = $scope.state.size.toString();
-	/**
-	 * Names the column by which to sort rows using the field value of the column.
-	 * 
-	 * If the field does not exist, no ordering is explicitly performed.
-	 * @property state.order
-	 * @type String
-	 * @defaul null
-	 */
-	/**
-	 * Controls the sort ordering and is returned when `a` is considered to precede `b`.
-	 * @property state.above
-	 * @type Number
-	 * @default -1
-	 */
 	if($scope.state.above === undefined) {
 		$scope.state.above = -1;
 	}
-	/**
-	 * Controls the sort ordering and is returned when `a` is considered to procede `b`.
-	 * @property state.below
-	 * @type Number
-	 * @default 1
-	 */
 	if($scope.state.below === undefined) {
 		$scope.state.below = -1 * $scope.state.above;
 	}
@@ -390,7 +359,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 	 * 
 	 * Changing to a new column does NOT change the sort direction.
 	 * @method module:WidgetComponents.ActionTableController#reorder
-	 * @param {Object} column 
+	 * @param {Column} column 
 	 */
 	$scope.reorder = function(column) {
 		if(column) {
@@ -518,7 +487,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 	 * ID specified in options. This allows another widget on the same page as the table
 	 * to implement something akin to `$scope.$on("ststable:data:[ID]", $scope.processAPIData)`
 	 * to receive the data and perform any needed actions.
-	 * @method module:WidgetComponents.ActionTableController#loadData
+	 * @method module:WidgetComponents.ActionTableController#prepareData
 	 */
 	$scope.prepareData = function() {
 		var column,
@@ -585,8 +554,8 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 			$scope.corpus.sort(sortData);
 		}
 
-		$scope.page_count = $scope.corpus.length/$scope.state.size;
-		for(i=0; i<$scope.page_count; i++) {
+		$scope.pageCount = $scope.corpus.length/$scope.state.size;
+		for(i=0; i<$scope.pageCount; i++) {
 			$scope.pages.push(i + 1);
 		}
 
@@ -702,8 +671,8 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 			case "ajax-call":
 				process = fillin(process, row);
 				keys = Object.keys(process);
-				buffer = new SPGlideAjax(process.tbl_class);
-				buffer.addParam("sysparm_name", process.tbl_method);
+				buffer = new SPGlideAjax(process.ajax_class);
+				buffer.addParam("sysparm_name", process.ajax_method);
 				for(i=0; i<keys.length; i++) {
 					buffer.addParam(keys[i], process[keys[i]]);
 				}
@@ -711,7 +680,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 					if(process.new_url && process.new_url[0] !== "/") {
 						process.new_url = "/" + process.new_url;
 					}
-					switch(process.tbl_complete) {
+					switch(process.ajax_complete) {
 						case "redirect":
 							location = process.new_url;
 							break;
@@ -833,7 +802,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 				endReload();
 			};
 
-			$scope.reload_icon = "fa-refresh fa-spin";
+			$scope.reloadIcon = "fa-refresh fa-spin";
 			$scope.update();
 
 			$scope.server.get()

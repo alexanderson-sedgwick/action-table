@@ -30,10 +30,10 @@ function SPGlideAjax($http) {
 
 	/**
 	 * Static space reference for quick replacement.
-	 * @property regexSpace
-	 * @type RegExp
-	 * @priavte
-	 * @static
+	 * @type {RegExp}
+	 * @memberof module:AngularProviders.SPGlideAjax
+	 * @instance
+	 * @private
 	 */
 	var regexSpace = / /g;
 
@@ -42,7 +42,6 @@ function SPGlideAjax($http) {
 	 * so this is used to convert the parameters to the appropriate format.
 	 * @method module:AngularProviders.SPGlideAjax#serializeToForm
 	 * @priavte
-	 * @static
 	 * @param {Object} data The object to parse into form data. The values off the object
 	 * 		should be easily represented as strings or issues may occur.
 	 * @return {String} Form data string of the data in the passed object
@@ -61,10 +60,10 @@ function SPGlideAjax($http) {
 
 	/**
 	 * General options to use with all $HTTP calls
-	 * @property generalOptions
-	 * @type Object
+	 * @type {Object}
+	 * @memberof module:AngularProviders.SPGlideAjax
+	 * @instance
 	 * @private
-	 * @static
 	 */
 	var generalOptions = {
 		"headers": {

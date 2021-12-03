@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Class: SPGlideAjax</title>
+	<title>ActionTable Class: SPGlideAjax</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<a class="navbar-brand" href="index.html">ActionTable</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -33,14 +33,14 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
+					<li><a href="module-AngularProviders.html">AngularProviders</a></li><li><a href="module-ScriptIncludes.html">ScriptIncludes</a></li><li><a href="module-Specifications.html">Specifications</a></li><li><a href="module-WidgetComponents.html">WidgetComponents</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li>
+					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li><li><a href="Specifications.Action.html">Specifications.Action</a></li><li><a href="Specifications.Column.html">Specifications.Column</a></li><li><a href="Specifications.State.html">Specifications.State</a></li>
 				</ul>
 			</li>
 			
@@ -102,7 +102,7 @@
     
     <div class="description">
         <p>A simplified version of GlideAJAX for use within the Service Portal.</p>
-<p>This specifically implements getAnswer and getXMLAnswer with some modernization<br>
+<p>This specifically implements getAnswer and getXMLAnswer with some modernization
 for Promise support through Angular's $http service.</p>
     </div>
     
@@ -249,6 +249,172 @@ for Promise support through Angular's $http service.</p>
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id="generalOptions">
+    <h4 id="generalOptions"><span class="type-signature">&lt;private> </span>generalOptions<span class="type-signature"> :Object</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>General options to use with all $HTTP calls</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="providers_spglideajax.js.html">providers/spglideajax.js</a>,
+				 <a href="providers_spglideajax.js.html#sunlight-1-line-68">line 68</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="regexSpace">
+    <h4 id="regexSpace"><span class="type-signature">&lt;private> </span>regexSpace<span class="type-signature"> :RegExp</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Static space reference for quick replacement.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">RegExp</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="providers_spglideajax.js.html">providers/spglideajax.js</a>,
+				 <a href="providers_spglideajax.js.html#sunlight-1-line-38">line 38</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -386,7 +552,7 @@ for Promise support through Angular's $http service.</p>
 		<ul class="dummy">
 			<li>
 				<a href="providers_spglideajax.js.html">providers/spglideajax.js</a>,
-				 <a href="providers_spglideajax.js.html#sunlight-1-line-118">line 118</a>
+				 <a href="providers_spglideajax.js.html#sunlight-1-line-117">line 117</a>
 			</li>
 		</ul>
 	</dd>
@@ -428,7 +594,7 @@ for Promise support through Angular's $http service.</p>
     
     <div class="description">
         <p>Uses the parameters object to handle processing.</p>
-<p>If the sysparm_name property is missing, a warning is sent to the<br>
+<p>If the sysparm_name property is missing, a warning is sent to the
 console for developer awareness.</p>
     </div>
     
@@ -481,7 +647,7 @@ console for developer awareness.</p>
 
             
 
-            <td class="description last"><p>Takes callback(answer, error) and resolves appropriately<br>
+            <td class="description last"><p>Takes callback(answer, error) and resolves appropriately
 the same as the returned promise.</p></td>
         </tr>
 
@@ -527,7 +693,7 @@ the same as the returned promise.</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="providers_spglideajax.js.html">providers/spglideajax.js</a>,
-				 <a href="providers_spglideajax.js.html#sunlight-1-line-83">line 83</a>
+				 <a href="providers_spglideajax.js.html#sunlight-1-line-82">line 82</a>
 			</li>
 		</ul>
 	</dd>
@@ -556,7 +722,7 @@ the same as the returned promise.</p></td>
     
             
 <div class="param-desc">
-    <p>The promise resolves with the answer XML element on<br>
+    <p>The promise resolves with the answer XML element on
 success or an Error object on failure.</p>
 </div>
 
@@ -645,7 +811,7 @@ success or an Error object on failure.</p>
 
             
 
-            <td class="description last"><p>Takes callback(answer, error) and resolves appropriately<br>
+            <td class="description last"><p>Takes callback(answer, error) and resolves appropriately
 the same as the returned promise.</p></td>
         </tr>
 
@@ -691,7 +857,7 @@ the same as the returned promise.</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="providers_spglideajax.js.html">providers/spglideajax.js</a>,
-				 <a href="providers_spglideajax.js.html#sunlight-1-line-128">line 128</a>
+				 <a href="providers_spglideajax.js.html#sunlight-1-line-127">line 127</a>
 			</li>
 		</ul>
 	</dd>
@@ -720,7 +886,7 @@ the same as the returned promise.</p></td>
     
             
 <div class="param-desc">
-    <p>Resolves on success with the answer string and on failure<br>
+    <p>Resolves on success with the answer string and on failure
 throws to the catch chain.</p>
 </div>
 
@@ -757,7 +923,7 @@ throws to the catch chain.</p>
 
     
     <div class="description">
-        <p>Service-Now's GlideAjax works with form data strings instead of JSON,<br>
+        <p>Service-Now's GlideAjax works with form data strings instead of JSON,
 so this is used to convert the parameters to the appropriate format.</p>
     </div>
     
@@ -810,7 +976,7 @@ so this is used to convert the parameters to the appropriate format.</p>
 
             
 
-            <td class="description last"><p>The object to parse into form data. The values off the object<br>
+            <td class="description last"><p>The object to parse into form data. The values off the object
 should be easily represented as strings or issues may occur.</p></td>
         </tr>
 
@@ -957,13 +1123,13 @@ should be easily represented as strings or issues may occur.</p></td>
 
 
 	<span class="copyright">
-	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	Sedgwick Technology Solutions Copyright ©2021
 	</span>
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
 	
-		on Thu Dec 2nd 2021
+		on Fri Dec 3rd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

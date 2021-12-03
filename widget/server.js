@@ -1,22 +1,35 @@
+/** @module WidgetComponents */
 /**
  * The Angular controller for managing the Action Table
  * @class module:WidgetComponents.ActionTableServerScript
+ */
+
+/**
+ * Object created by Service-Now and passed to the Widget controller on initialization.
+ * @memberof module:WidgetComponents.ActionTableServerScript
+ * @typedef {Object} data
+ * @property {Number} loaded Timestamp for when the data was retrieved
+ * @property {Array} rows Contains the row data for the table
+ * @property {String} error Message from an error while building the data for the table
+ */
+
+/**
+ * Object created by Service-Now and passed to the Widget controller on initialization.
+ * @memberof module:WidgetComponents.ActionTableServerScript
+ * @typedef {Object} options
+ * @property {String} filterable Comma seperated list of fields that should be added
+ * 		to the $search property of objects for easy filtering.
+ * @property {Number} per_page Forces the table to show a set number of rows per page
+ * 		of data and hides the per_page selector on the table.
+ * @property {Number} refresh_interval Milliseconds to wait between pulling data
+ * 		from the server again.
+ * @property {String} data_source Indicating where/how to retrieve data.
  */
 (function() {
 	var buffer,
 		i;
 
-	/**
-	 * Object created by Service-Now and passed to the Widget controller on initialization.
-	 * @property data
-	 * @type Object
-	 */
 
-	/**
-	 * Track when the data was retrieved
-	 * @property data.loaded
-	 * @type Number
-	 */
 	data.loaded = Date.now();
 
 	// Level Set Options
@@ -43,11 +56,6 @@
 	// Retrieve rows based on options
 	try {
 		switch(options.data_source) {
-			/**
-			 * Contains the row data for the table
-			 * @property data.rows
-			 * @type Array
-			 */
 			case "table":
 				data.rows = STSTableScriptAPI.getTableData(options.table, options.query);
 				break;
@@ -69,11 +77,6 @@
 				gs.error("Action Table: Unknown Data Source: " + options.data_source);
 		}
 	} catch(sourceException) {
-		/**
-		 * Message from an error while building the data for the table
-		 * @property data.error
-		 * @type String
-		 */
 		data.error = sourceException.message || "Generic Error occurred";
 		gs.error(sourceException);
 	}
