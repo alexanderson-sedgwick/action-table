@@ -1,11 +1,10 @@
-/** @module Specifications */
 /**
  * Describes options to present to the user on the table to take an
  * action on a specific row.
  * 
  * This exists only for documentation purposes and is not actually
  * defined in the instance.
- * @class
+ * @memberof Specifications
  */
 class Action {
 	constructor() {

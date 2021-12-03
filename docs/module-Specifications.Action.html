@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>ActionTable Class: ActionTableServerScript</title>
+	<title>ActionTable Class: Action</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li><li><a href="Specifications.Action.html">Specifications.Action</a></li><li><a href="Specifications.Column.html">Specifications.Column</a></li><li><a href="Specifications.State.html">Specifications.State</a></li>
+					<li><a href="module-AngularProviders.SPGlideAjax.html">AngularProviders.SPGlideAjax</a></li><li><a href="module-ScriptIncludes.ActionTableScriptAPI.html">ScriptIncludes.ActionTableScriptAPI</a></li><li><a href="module-Specifications.Action.html">Specifications.Action</a></li><li><a href="module-Specifications.Column.html">Specifications.Column</a></li><li><a href="module-WidgetComponents.ActionTableController.html">WidgetComponents.ActionTableController</a></li><li><a href="module-WidgetComponents.ActionTableServerScript.html">WidgetComponents.ActionTableServerScript</a></li><li><a href="Specifications.State.html">Specifications.State</a></li>
 				</ul>
 			</li>
 			
@@ -72,15 +72,15 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: ActionTableServerScript</h1>
+	<h1 class="page-title">Class: Action</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-WidgetComponents.html">WidgetComponents</a>.</span>
+            <span class="ancestors"><a href="module-Specifications.html">Specifications</a>.</span>
         
-        ActionTableServerScript
+        Action
         </h2>
         
     
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="ActionTableServerScript"><span class="type-signature"></span>new ActionTableServerScript()</h4>
+    <h4 class="name" id="Action"><span class="type-signature"></span>new Action()</h4>
     
     
 </dt>
@@ -101,7 +101,10 @@
 
     
     <div class="description">
-        <p>The Angular controller for managing the Action Table</p>
+        <p>Describes options to present to the user on the table to take an
+action on a specific row.</p>
+<p>This exists only for documentation purposes and is not actually
+defined in the instance.</p>
     </div>
     
 
@@ -147,8 +150,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="widget_server.js.html">widget/server.js</a>,
-				 <a href="widget_server.js.html#sunlight-1-line-2">line 2</a>
+				<a href="widget_action.js.html">widget/action.js</a>,
+				 <a href="widget_action.js.html#sunlight-1-line-2">line 2</a>
 			</li>
 		</ul>
 	</dd>
@@ -191,24 +194,37 @@
     
 
     
-
-    
-
-    
-        <h3 class="subsection-title">Type Definitions</h3>
+        <h3 class="subsection-title">Members</h3>
 
         <dl>
-                
+            
 <hr>
-<dt class="name" id=".data">
-    <h4 id=".data">data</h4>
+<dt class="name" id=".this.action">
+    <h4 id=".this.action"><span class="type-signature">&lt;static> </span>this.action<span class="type-signature"> :String</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Object created by Service-Now and passed to the Widget controller on initialization.</p>
+        <p>Indicating how interactions with this action should process.</p>
+<p>Specific actions that are available:</p>
+<ul>
+<li><code>link</code> or <code>newlink</code> go to a URL. <code>newlink</code> doing so in a new window or tab</li>
+<li><code>form-modal</code> opens a modal on the page with a form view. Every key's value
+is filled in for the object passed to the modal. This action also uses several
+specific extra key values; <code>table</code>, <code>sys_id</code>, and <code>view</code> to specify the form to
+open. These values are template completed before being invoked.</li>
+<li><code>ajax-call</code> makes an AJAX call similar to a GlideAjax call. This action also fills
+out the key values for all keys on the object and then passes each key as a parameter
+in the AJAX call. The <code>tbl_class</code> is used to initialize the SPGlideAjax instance and
+<code>tbl_method</code> is specifically added as the <code>&quot;sysparm_name&quot;</code> parameter of the AJAX call.
+Both keys can also be specified specifically as a key:value pair on the row's data that
+can be completed for a more dynamic AJAX call. Additionally, a <code>tbl_complete</code> key is used
+for a switch case that can be either <code>redirect</code> or <code>newwindow</code> and will use the <code>new_url</code>
+key to open or redirect once a response is received. However, as a note, deeply nested
+data will NOT get replacements.</li>
+</ul>
     </div>
     
 
@@ -217,7 +233,7 @@
         <ul>
             <li>
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
 
@@ -227,107 +243,6 @@
 
     
 <dl class="details">
-    
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    <dl>
-
-<table class="props table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>loaded</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Timestamp for when the data was retrieved</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>rows</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Contains the row data for the table</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>error</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Message from an error while building the data for the table</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</dl>
-
     
 
 	
@@ -361,8 +276,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="widget_server.js.html">widget/server.js</a>,
-				 <a href="widget_server.js.html#sunlight-1-line-7">line 7</a>
+				<a href="widget_action.js.html">widget/action.js</a>,
+				 <a href="widget_action.js.html#sunlight-1-line-51">line 51</a>
 			</li>
 		</ul>
 	</dd>
@@ -379,18 +294,18 @@
     
 </dd>
 
+        
             
-                
 <hr>
-<dt class="name" id=".options">
-    <h4 id=".options">options</h4>
+<dt class="name" id=".this.condition">
+    <h4 id=".this.condition"><span class="type-signature">&lt;static> </span>this.condition<span class="type-signature"> :Object</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Object created by Service-Now and passed to the Widget controller on initialization.</p>
+        <p>Optional object describing values that have to match for the action to display</p>
     </div>
     
 
@@ -409,134 +324,6 @@
 
     
 <dl class="details">
-    
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    <dl>
-
-<table class="props table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>filterable</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Comma seperated list of fields that should be added
-to the $search property of objects for easy filtering.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>per_page</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Forces the table to show a set number of rows per page
-of data and hides the per_page selector on the table.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>refresh_interval</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Milliseconds to wait between pulling data
-from the server again.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data_source</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Indicating where/how to retrieve data.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</dl>
-
     
 
 	
@@ -570,8 +357,8 @@ from the server again.</p></td>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="widget_server.js.html">widget/server.js</a>,
-				 <a href="widget_server.js.html#sunlight-1-line-16">line 16</a>
+				<a href="widget_action.js.html">widget/action.js</a>,
+				 <a href="widget_action.js.html#sunlight-1-line-57">line 57</a>
 			</li>
 		</ul>
 	</dd>
@@ -588,7 +375,336 @@ from the server again.</p></td>
     
 </dd>
 
-            </dl>
+        
+            
+<hr>
+<dt class="name" id=".this.icon">
+    <h4 id=".this.icon"><span class="type-signature">&lt;static> </span>this.icon<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>With classes specifically for rendering an icon. This will generally follow font-awesome 4.7 or another glyph set included on your portal</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_action.js.html">widget/action.js</a>,
+				 <a href="widget_action.js.html#sunlight-1-line-17">line 17</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".this.label">
+    <h4 id=".this.label"><span class="type-signature">&lt;static> </span>this.label<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>For the displayed text</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_action.js.html">widget/action.js</a>,
+				 <a href="widget_action.js.html#sunlight-1-line-23">line 23</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".this.perform">
+    <h4 id=".this.perform"><span class="type-signature">&lt;static> </span>this.perform<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Only for the <code>link</code> or <code>newlink</code> action, this specifies the URL. Template tokens here
+are replaced by the data rows' values.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_action.js.html">widget/action.js</a>,
+				 <a href="widget_action.js.html#sunlight-1-line-64">line 64</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".this.title">
+    <h4 id=".this.title"><span class="type-signature">&lt;static> </span>this.title<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Used for hover text (HTML title property) on the button</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="widget_action.js.html">widget/action.js</a>,
+				 <a href="widget_action.js.html#sunlight-1-line-29">line 29</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
     
 
     

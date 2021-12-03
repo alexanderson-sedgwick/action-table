@@ -3,7 +3,7 @@
  * 
  * This exists only for documentation purposes and is not actually
  * defined in the instance.
- * @class module:Specifications.Column
+ * @memberof Specifications
  */
 class Column {
 	constructor() {
