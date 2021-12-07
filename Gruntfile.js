@@ -44,7 +44,7 @@ config = {
 				"api",
 				"gs",
 
-				"STSTableScriptAPI",
+				"ActionTableScriptAPI",
 
 				"sessionStorage",
 				"localStorage",
@@ -68,13 +68,6 @@ config = {
 	},
 	"watch": {
 		"app": {
-			"options": {
-				"livereload": {
-					"host": "0.0.0.0",
-					"port": 3083
-				},
-				"livereloadOnError": false
-			},
 			"files": [
 				"./providers/**/*.js",
 				"./scripts/**/*.js",

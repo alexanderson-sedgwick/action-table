@@ -9,10 +9,17 @@
 class Action {
 	constructor() {
 		/**
-		 * With classes specifically for rendering an icon. This will generally follow font-awesome 4.7 or another glyph set included on your portal
+		 * With classes specifically for rendering an icon. This will generally follow font-awesome 4.7
+		 * or another glyph set included on your portal
 		 * @type {String}
 		 */
 		this.icon;
+		/**
+		 * CSS classes to apply to the button itself for styling. A good class to use here would be the
+		 * Service-Now button classes, such as "btn btn-info" or similar.
+		 * @type {String}
+		 */
+		this.classes;
 		/**
 		 * For the displayed text
 		 * @type {String}

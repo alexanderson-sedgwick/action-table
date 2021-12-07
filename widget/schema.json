@@ -108,7 +108,7 @@
 	"hint": "Name the method to invoke on the script. Applies on either script type source configuration. In the case of 'Internal Script', the class is considered ActionTableScriptAPI and the method must be statically defined.",
 	"name": "script_method",
 	"section": "Data",
-	"default_value": "getExampleData",
+	"default_value": "generateExampleData",
 	"label": "Script Method for Data",
 	"type": "string"
 }, {

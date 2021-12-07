@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>ActionTable Module: WidgetComponents</title>
+	<title>ActionTable Source: widget/row.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,108 +67,55 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: WidgetComponents</h1>
+		<h1 class="page-title">Source: widget/row.js</h1>
+    
 <section>
-
-<header>
-    
-</header>
-
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="widget_server.js.html">widget/server.js</a>,
-				 <a href="widget_server.js.html#sunlight-1-line-1">line 1</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-WidgetComponents.ActionTableController.html">ActionTableController</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-WidgetComponents.ActionTableServerScript.html">ActionTableServerScript</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * Represents an entry of information to display on the table.
+ * 
+ * This piece serves to document special properties of a row that the widget uses.
+ * 
+ * This exists only for documentation purposes and is not actually
+ * defined in the instance.
+ * @memberof Specifications
+ */
+class Row {
+	constructor() {
+		/**
+		 * When set, an icon is prefixed to this row that when clicked will display
+		 * an alert with this text, or when the user hovers over the prefixed icon.
+		 * @type {String}
+		 */
+		this.$status_text;
+		/**
+		 * The CSS class string to apply to the prefixed button as a whole.
+		 * 
+		 * This can usually be left blank but can be useful for styling the status icon
+		 * to a button, or otherwise calling out the interactability of the piece.
+		 * @type {String}
+		 */
+		this.$status_class;
+		/**
+		 * The CSS classes to render the icon for the status. These should usually be
+		 * FontAwesome 4.7 classes ( https://fontawesome.com/v4.7/ ) such as "fas fa-exclamation-triangle"
+		 * but may include glyphs from other added glyph sets, which is why this is left
+		 * as an open ended string.
+		 * @type {String}
+		 */
+		this.$status_icon;
+	}
+}
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -178,10 +125,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

@@ -10,7 +10,8 @@
  * @typedef {Object} data
  * @property {Number} loaded Timestamp for when the data was retrieved
  * @property {Array} rows Contains the row data for the table
- * @property {String} error Message from an error while building the data for the table
+ * @property {Object} error Message from an error while building the data for the table.
+ * @property {String} error.message The message to display for the error.
  */
 
 /**
@@ -57,13 +58,13 @@
 	try {
 		switch(options.data_source) {
 			case "table":
-				data.rows = STSTableScriptAPI.getTableData(options.table, options.query);
+				data.rows = ActionTableScriptAPI.getTableData(options.table, options.query);
 				break;
 			case "server":
-				if(typeof(STSTableScriptAPI[options.script_method]) == "function") {
-					data.rows = STSTableScriptAPI[options.script_method](options.query);
+				if(typeof(ActionTableScriptAPI[options.script_method]) == "function") {
+					data.rows = ActionTableScriptAPI[options.script_method](options.query);
 				} else {
-					buffer = "Action Table: Script Method \"" + options.script_method + "\" does not exist for Script STSTableScriptAPI";
+					buffer = "Action Table: Script Method \"" + options.script_method + "\" does not exist for Script ActionTableScriptAPI";
 					gs.error(buffer);
 					throw new Error(buffer);
 				}
@@ -77,7 +78,9 @@
 				gs.error("Action Table: Unknown Data Source: " + options.data_source);
 		}
 	} catch(sourceException) {
-		data.error = sourceException.message || "Generic Error occurred";
+		data.error = {
+			"message": sourceException.message || "Generic Error occurred"
+		};
 		gs.error(sourceException);
 	}
 })();

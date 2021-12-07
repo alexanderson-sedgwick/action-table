@@ -115,7 +115,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 			// Maintain case insensitive search but don't mutate the user input
 			$scope.state.searching = $scope.state.search.toLowerCase();
 			$scope.state.page = 0;
-			$scope.filterIcon = "fa-filter";
+			$scope.filter_icon = "fa-filter";
 			$scope.loadCorpus();
 			$scope.update();
 			timing = null;
@@ -142,7 +142,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 	 */
 	endReload = function() {
 		setTimeout(function() {
-			$scope.reloadIcon = "fa-refresh";
+			// $scope.reload_icon = "fa-refresh";
 			$scope.update();
 		}, 1000);
 	};
@@ -257,16 +257,16 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 	 * The displayed icon in the filter to give feedback to the user.
 	 * @memberof module:WidgetComponents.ActionTableController
 	 * @type {String}
-	 * @alias filterIcon
+	 * @alias filter_icon
 	 */
-	$scope.filterIcon = "fa-filter";
+	$scope.filter_icon = "fa-filter";
 	/**
 	 * The displayed icon for reloading data to give feedback to the user.
 	 * @memberof module:WidgetComponents.ActionTableController
 	 * @type {String}
-	 * @alias reloadIcon
+	 * @alias reload_icon
 	 */
-	$scope.reloadIcon = "fa-refresh";
+	$scope.reload_icon = "fa-refresh";
 	/**
 	 * Each element contained here is an element that is valid after the rows have been
 	 * filtered by search and sort criteria.
@@ -338,7 +338,7 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 	// When the search string changes, trigger the filtering function to eventually update the rendered values
 	$scope.$watch("state.search", function() {
 		if(!timing) {
-			$scope.filterIcon = "fa-spinner fa-pulse";
+			$scope.filter_icon = "fa-spinner fa-pulse";
 			$scope.update();
 			filtering();
 		}
@@ -418,6 +418,15 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 				break;
 			case "server":
 			case "table":
+				if($scope.data.error) {
+					if(typeof($scope.data.error) === "string") {
+						$scope.error = {
+							"message": $scope.data.error
+						};
+					} else {
+						$scope.error = $scope.data.error;
+					}
+				}
 				$scope.prepareData();
 				break;
 			default:
@@ -526,6 +535,8 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 			}
 			$scope.corpus.sort(sortData);
 		}
+
+		$scope.reload_icon = "fa-refresh";
 
 		mapDataFields();
 		$scope.$root.$emit("ststable:data:" + $scope.options.id, $scope.data);
@@ -655,7 +666,6 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 				break;
 			case "form-modal":
 				process = fillin(process, row);
-				console.log("FilledIn: ", process);
 				spModal.open({
 					"shared": $scope.state,
 					"value": process,
@@ -787,6 +797,8 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 		var success,
 			failure;
 
+		$scope.reload_icon = "fa-refresh fa-spin";
+
 		if($scope.options.data_source == "ajax") {
 			$scope.loadData();
 		} else {
@@ -801,9 +813,6 @@ api.controller = function($scope, $http, spModal, SPGlideAjax) {
 				$scope.error = error;
 				endReload();
 			};
-
-			$scope.reloadIcon = "fa-refresh fa-spin";
-			$scope.update();
 
 			$scope.server.get()
 			.then(success, failure);
